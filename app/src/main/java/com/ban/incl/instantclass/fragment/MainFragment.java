@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
 
@@ -89,7 +90,7 @@ public class MainFragment extends Fragment {
             switch (v.getId()) {
                 case R.id.btn_main_recommand:
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, SingleListFragment.newInstance())
+                            .replace(R.id.container, InclRecyclerFragment.newInstance())
                             .addToBackStack(null)
                             .commit();
                     break;
@@ -101,17 +102,21 @@ public class MainFragment extends Fragment {
                 case R.id.btn_main_region:
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, SingleListFragment.newInstance())
+                            .addToBackStack(null)
                             .commit();
                     break;
                 case R.id.btn_main_all:
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, SingleListFragment.newInstance())
+                            .addToBackStack(null)
                             .commit();
                     break;
                 case R.id.btn_cal_prev:
                     Log.d("INCL_DEBUG", "Calendar Scroll prev");
+                    Toast.makeText(getActivity(), "Calendar Scroll prev", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.btn_cal_next:
+                    Toast.makeText(getActivity(), "Calendar Scroll next", Toast.LENGTH_SHORT).show();
                     Log.d("INCL_DEBUG", "Calendar Scroll next");
                     break;
             }

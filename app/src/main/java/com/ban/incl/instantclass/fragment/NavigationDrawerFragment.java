@@ -2,7 +2,6 @@ package com.ban.incl.instantclass.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -17,10 +16,10 @@ import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -28,17 +27,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.ban.incl.instantclass.R;
-import com.ban.incl.instantclass.activity.LoginActivity;
+import com.ban.incl.instantclass.ViewPagerFragment;
 import com.ban.incl.instantclass.activity.AddClassActivity;
+import com.ban.incl.instantclass.activity.LoginActivity;
 import com.ban.incl.instantclass.util.InclDbConnection;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -113,17 +109,19 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
             switch (v.getId()) {
                 case R.id.iv_mylist:
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, MainFragment.newInstance())
+                            .replace(R.id.container, SingleListFragment.newInstance())
+                            .addToBackStack(null)
                             .commit();
                     break;
                 case R.id.iv_interest:
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, MainFragment.newInstance())
+                            .replace(R.id.container, ViewPagerFragment.newInstance())
+                            .addToBackStack(null)
                             .commit();
                     break;
                 case R.id.iv_setting:
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, InclRecyclerFragment.newInstance())
+                            .replace(R.id.container, SingleListFragment.newInstance())
                             .addToBackStack(null)
                             .commit();
                     break;

@@ -8,5 +8,5 @@
     <dimen name="navigation_drawer_width">137dp</dimen>
     <dimen name="toolbar_elevation">4dp</dimen>
 
-    <dimen name="toolbar_height">?android:attr/actionBarSize</dimen>
+    <dimen name="toolbar_height">32dp</dimen>
 </resources>
