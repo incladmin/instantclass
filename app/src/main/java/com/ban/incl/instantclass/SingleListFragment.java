@@ -33,7 +33,6 @@ public class SingleListFragment extends Fragment {
         SingleAdapter adapter = new SingleAdapter(view.getContext());
         list.setAdapter(adapter);
 
-        
         return view;
     }
 
