@@ -38,7 +38,7 @@ public class phpDown extends AsyncTask<String, Integer, String>{
     }
 
     public phpDown() {
-    //test
+    //testaaadfdead
     }
 
     public String getMode() {
