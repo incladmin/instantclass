@@ -127,6 +127,7 @@ public class AddClassFragment extends Fragment implements View.OnClickListener {
     }
 
     public interface OnFragmentInteractionListener {
+
         public void onFragmentInteraction(Uri uri);
     }
 
