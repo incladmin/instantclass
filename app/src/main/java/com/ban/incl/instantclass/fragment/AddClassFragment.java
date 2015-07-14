@@ -17,7 +17,7 @@ import com.ban.incl.instantclass.vo.ClassVO;
 
 
 public class AddClassFragment extends Fragment implements View.OnClickListener {
-
+    ///test scban
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
