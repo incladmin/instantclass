@@ -75,12 +75,12 @@ public class MainActivity extends ActionBarActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             switch (v.getId()) {
                 case R.id.iv_mylist:
-                fragmentManager.beginTransaction()
-                            .replace(R.id.container, SingleListFragment.newInstance())
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, MainFragment.newInstance())
                             .commit();
                     break;
                 case R.id.iv_interest:
-                fragmentManager.beginTransaction()
+                    fragmentManager.beginTransaction()
                             .replace(R.id.container, MainFragment.newInstance())
                             .commit();
                     break;
@@ -91,7 +91,7 @@ public class MainActivity extends ActionBarActivity {
                     break;
                 case R.id.iv_notice:
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, SingleListFragment.newInstance())
+                            .replace(R.id.container, InclRecyclerFragment.newInstance())
                             .commit();
                     break;
                 case R.id.iv_qna:
@@ -142,14 +142,14 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
+    /*
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Closing Activity")
                 .setMessage("Are you sure you want to close this activity?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
-                {
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
@@ -159,5 +159,5 @@ public class MainActivity extends ActionBarActivity {
                 .setNegativeButton("No", null)
                 .show();
     }
-
+    */
 }
