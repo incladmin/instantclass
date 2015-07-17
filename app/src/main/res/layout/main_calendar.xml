@@ -30,10 +30,39 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="50dp" />
 
-        <include
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            layout="@layout/main_calendar_list" />
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton4"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_calandar_pre" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/horizontalScrollView"
+                android:layout_weight="1"
+                android:scrollbars="none" >
+
+                <include
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    layout="@layout/main_calendar_list" />
+            </HorizontalScrollView>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton5"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_calandar_next" />
+        </LinearLayout>
 
     </LinearLayout>
 

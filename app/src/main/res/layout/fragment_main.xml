@@ -37,7 +37,7 @@
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton"
+                        android:id="@+id/btn_main_recommand"
                         android:background="#00000000" />
 
                     <TextView
@@ -55,7 +55,7 @@
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton2"
+                        android:id="@+id/btn_main_region"
                         android:background="#00000000" />
 
                     <TextView
@@ -73,7 +73,7 @@
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton3"
+                        android:id="@+id/btn_main_all"
                         android:background="#00000000" />
 
                     <TextView

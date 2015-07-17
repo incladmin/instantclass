@@ -4,92 +4,109 @@
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imgbtn_calendar_back"
-        android:src="@drawable/ic_tb_search"
-        android:layout_gravity="center_vertical" />
-
-    <HorizontalScrollView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/horizontalScrollView"
-        android:layout_weight="1"
-        android:scrollbars="none">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/listcalendar">
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/main_calendar_item" />
 
-            <include
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                layout="@layout/main_calendar_item" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/main_calendar_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </HorizontalScrollView>
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imgbtn_calendar_next"
-        android:src="@drawable/ic_tb_search"
-        android:layout_gravity="center_vertical" />
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/main_calendar_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </LinearLayout>

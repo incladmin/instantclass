@@ -67,7 +67,6 @@ public class MainFragment extends Fragment {
                 @Override
                 public void onClick(View v)
                 {
-                    // TODO Auto-generated method stub
                     Log.e("Tag", "" + imageView.getTag());
                 }
             });

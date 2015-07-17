@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="#ffffff">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/imageView5"
         android:background="@drawable/img_list_item_test" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="match_parent"
@@ -39,7 +40,7 @@
                 android:gravity="center_vertical" >
 
                 <TextView
-                    android:id="@+id/textView24"
+                    android:id="@+id/txt_list_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_horizontal"
@@ -50,7 +51,7 @@
                     android:textColor="#000000" />
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/txt_list_place"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_horizontal"
@@ -61,7 +62,7 @@
                     android:layout_marginTop="3dp" />
 
                 <TextView
-                    android:id="@+id/textView26"
+                    android:id="@+id/txt_list_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_horizontal"
@@ -74,14 +75,14 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="right"
                 android:layout_marginRight="5dp"
                 android:gravity="center_vertical" >
 
                 <TextView
-                    android:id="@+id/textView27"
+                    android:id="@+id/txt_list_people"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|right"
@@ -91,7 +92,7 @@
                     android:textColor="#000000" />
 
                 <TextView
-                    android:id="@+id/textView28"
+                    android:id="@+id/txt_list_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10000원"
@@ -112,14 +113,32 @@
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp">
 
-            <ImageView
-                android:id="@+id/imageView11"
-                android:tag="image_tag"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_list_photo"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:tag="image_tag"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/ic_launcher_store" />
+                </FrameLayout>
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:tag="image_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_list_photo" />
+
+            </FrameLayout>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -127,7 +146,7 @@
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:id="@+id/textView24"
+                    android:id="@+id/txt_list_writer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_horizontal"
@@ -137,7 +156,7 @@
                     android:textColor="#000000" />
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/txt_list_addr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_horizontal"

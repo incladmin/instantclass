@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,11 @@ import com.ban.incl.instantclass.SingleListFragment;
 import com.ban.incl.instantclass.fragment.AddClassFragment;
 import com.ban.incl.instantclass.fragment.InclRecyclerFragment;
 import com.ban.incl.instantclass.fragment.MainFragment;
+import com.ban.incl.instantclass.util.InclDbConnection;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -87,22 +93,33 @@ public class MainActivity extends ActionBarActivity {
                 case R.id.iv_setting:
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, InclRecyclerFragment.newInstance())
+                            .addToBackStack(null)
                             .commit();
                     break;
                 case R.id.iv_notice:
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container, InclRecyclerFragment.newInstance())
-                            .commit();
+                    //TODO : 삭제
+                    try {
+                        String s = new InclDbConnection("SELECT").execute(new HashMap()).get();
+                        Log.d("InclDbConnection MAIN", s);
+                    } catch (Exception e) {
+                        Log.d("InclDbConnection MAIN", "Exception");
+                    }
                     break;
                 case R.id.iv_qna:
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container, InclRecyclerFragment.newInstance())
-                            .commit();
+                    // TODO : 삭제
+                    try {
+                        String s = new InclDbConnection("DETAIL").execute(new HashMap()).get();
+                        Log.d("InclDbConnection MAIN", s);
+                    } catch (Exception e) {
+                        Log.d("InclDbConnection MAIN", "Exception");
+                    }
                     break;
                 case R.id.btn_add_class:
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, AddClassFragment.newInstance())
+                            .addToBackStack(null)
                             .commit();
+
                     break;
                 case R.id.iv_login:
                     Intent intent = new Intent(getApplicationContext() , LoginActivity.class);
@@ -143,6 +160,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     /*
+    //TODO: back button
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
