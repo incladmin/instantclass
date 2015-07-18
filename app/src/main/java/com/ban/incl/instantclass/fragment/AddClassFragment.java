@@ -12,8 +12,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
-import com.ban.incl.instantclass.util.phpDown;
+import com.ban.incl.instantclass.util.InclDBUtil;
+import com.ban.incl.instantclass.util.InclUtil;
 import com.ban.incl.instantclass.vo.ClassVO;
+
+import java.util.Map;
 
 
 public class AddClassFragment extends Fragment implements View.OnClickListener {
@@ -89,18 +92,9 @@ public class AddClassFragment extends Fragment implements View.OnClickListener {
                 content.setText("");
                 place.setText("");
 
+                Map map = InclUtil.ConvertObjtoMap(vo);
 
-                phpDown task = new phpDown();
-
-                try {
-                    task.setMode("INSERT");
-                    task.setInsertItem(vo);
-
-                    task.execute("insertClass.php");
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                InclDBUtil.insertClass(map);
 
                 Toast.makeText(getActivity(), "Insert", Toast.LENGTH_SHORT).show();
                 break;

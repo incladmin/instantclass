@@ -1,10 +1,7 @@
 package com.ban.incl.instantclass.fragment;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +44,7 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
 
         try {
             ClassVO vo = new ClassVO();
-            vo.setClassId(2);
+            vo.setClassId("2");
 
             task.setMode("DETAIL");
             task.setInsertItem(vo);
@@ -65,8 +62,6 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
                 EditText endTime    = (EditText)view.findViewById(R.id.edtUpEndTime);
                 EditText content    = (EditText)view.findViewById(R.id.edtUpContent);
                 EditText place      = (EditText)view.findViewById(R.id.edtUpPlace);
-
-                Log.d("inclTest", "GetDetail >> title : " + title.getText());
 
                 title.setText(jo.getString("title"));
                 date.setText(jo.getString("date"));

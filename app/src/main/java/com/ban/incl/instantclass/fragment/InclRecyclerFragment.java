@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.adapter.InclRecyclerAdapter;
-import com.ban.incl.instantclass.util.phpDown;
+import com.ban.incl.instantclass.util.InclDBUtil;
 import com.ban.incl.instantclass.vo.ClassVO;
 
 import org.json.JSONArray;
@@ -19,10 +19,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class InclRecyclerFragment extends Fragment {
 
-    private ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+    private List<ClassVO> list = new ArrayList<ClassVO>();
 
     public InclRecyclerFragment() {
         // Required empty public constructor
@@ -48,16 +49,7 @@ public class InclRecyclerFragment extends Fragment {
 
         recyclerView.setLayoutManager(mLayoutManager);
 
-        phpDown task = new phpDown();
-
-        try {
-            task.setMode("SELECT");
-            String returnVal = task.execute("getData.php").get();
-            phpFinish(returnVal);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        list = InclDBUtil.selectAllList();
 
         InclRecyclerAdapter adapter = new InclRecyclerAdapter(list);
         recyclerView.setAdapter(adapter);
@@ -75,7 +67,7 @@ public class InclRecyclerFragment extends Fragment {
                 JSONObject jo = ja.getJSONObject(i);
 
                 vo = new ClassVO();
-                vo.setClassId(jo.getInt("class_id"));
+                vo.setClassId(jo.getString("class_id"));
                 vo.setTitle(jo.getString("title"));
                 vo.setContent(jo.getString("content"));
                 vo.setDate(jo.getString("date"));

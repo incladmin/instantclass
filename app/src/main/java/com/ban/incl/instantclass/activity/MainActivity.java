@@ -1,7 +1,5 @@
 package com.ban.incl.instantclass.activity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -19,15 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
-import com.ban.incl.instantclass.SingleListFragment;
 import com.ban.incl.instantclass.fragment.AddClassFragment;
 import com.ban.incl.instantclass.fragment.InclRecyclerFragment;
 import com.ban.incl.instantclass.fragment.MainFragment;
 import com.ban.incl.instantclass.util.InclDbConnection;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -100,18 +95,16 @@ public class MainActivity extends ActionBarActivity {
                     //TODO : 삭제
                     try {
                         String s = new InclDbConnection("SELECT").execute(new HashMap()).get();
-                        Log.d("InclDbConnection MAIN", s);
                     } catch (Exception e) {
-                        Log.d("InclDbConnection MAIN", "Exception");
+                        Log.d("INCL_DEBUG", "MAIN > iv_notice Exception");
                     }
                     break;
                 case R.id.iv_qna:
                     // TODO : 삭제
                     try {
                         String s = new InclDbConnection("DETAIL").execute(new HashMap()).get();
-                        Log.d("InclDbConnection MAIN", s);
                     } catch (Exception e) {
-                        Log.d("InclDbConnection MAIN", "Exception");
+                        Log.d("INCL_DEBUG", "MAIN > iv_qna Exception");
                     }
                     break;
                 case R.id.btn_add_class:

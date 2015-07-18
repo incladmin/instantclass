@@ -4,7 +4,7 @@ package com.ban.incl.instantclass.vo;
  * Created by ots on 2015-05-18.
  */
 public class ClassVO {
-    private int classId;
+    private String classId;
     private String title;
     private String date;
     private String startTime;
@@ -30,11 +30,11 @@ public class ClassVO {
         this.price = price;
     }
 
-    public int getClassId() {
+    public String getClassId() {
         return classId;
     }
 
-    public void setClassId(int classId) {
+    public void setClassId(String classId) {
         this.classId = classId;
     }
 

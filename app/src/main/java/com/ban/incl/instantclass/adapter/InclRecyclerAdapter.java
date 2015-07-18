@@ -9,14 +9,14 @@ import android.widget.TextView;
 import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.vo.ClassVO;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by sc.ban on 2015.06.28
  */
 public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapter.MyViewHolder> {
 
-    private ArrayList<ClassVO> listClass;
+    private List<ClassVO> listClass;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView txtDate;
@@ -37,7 +37,7 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
         }
     }
 
-    public InclRecyclerAdapter(ArrayList<ClassVO> listClass) {
+    public InclRecyclerAdapter(List<ClassVO> listClass) {
         this.listClass = listClass;
     }
 

@@ -94,7 +94,7 @@ public class phpDown extends AsyncTask<String, Integer, String>{
             ex.printStackTrace();
         }
 
-        Log.d("Incl_Debug", jsonHtml.toString());
+        Log.d("INCL_DEBUG", jsonHtml.toString());
         return jsonHtml.toString();
     }
 
@@ -149,7 +149,7 @@ public class phpDown extends AsyncTask<String, Integer, String>{
             StringBuffer buffer = new StringBuffer();
             buffer.append("class_id").append("=").append(insertItem.getClassId());
 
-            Log.d("inclTest", "detail >> " + buffer);
+            Log.d("INCL_DEBUG", "detail >> " + buffer);
 
             OutputStreamWriter outStream = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
             PrintWriter writer = new PrintWriter(outStream);
@@ -178,7 +178,7 @@ public class phpDown extends AsyncTask<String, Integer, String>{
         } catch(Exception ex){
             ex.printStackTrace();
         }
-        Log.d("inclTest", jsonHtml.toString());
+        Log.d("INCL_DEBUG", jsonHtml.toString());
         return jsonHtml.toString();
     }
 
