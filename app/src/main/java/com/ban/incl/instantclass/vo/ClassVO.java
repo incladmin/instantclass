@@ -13,7 +13,7 @@ public class ClassVO {
     private String place;
     private String addr;
     private String price;
-
+/**/
     public String getAddr() {
         return addr;
     }
