@@ -19,19 +19,27 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
     private List<ClassVO> listClass;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView txtDate;
-        TextView txtAddr;
-        TextView txtStartTime;
-        TextView txtPrice;
+        TextView txt_card_title;
+        TextView txt_card_date;
+        TextView txt_card_place;
+        TextView txt_card_time;
+        TextView txt_card_people;
+        TextView txt_card_price;
+        TextView txt_card_writer;
+        TextView txt_card_addr;
 
 //        ImageView imageViewIcon;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            this.txtDate = (TextView) itemView.findViewById(R.id.txtDate);
-            this.txtAddr = (TextView) itemView.findViewById(R.id.txtAddr);
-            this.txtStartTime = (TextView) itemView.findViewById(R.id.txtStartTime);
-            this.txtPrice = (TextView) itemView.findViewById(R.id.txtPrice);
+//            this.txt_card_title = (TextView) itemView.findViewById(R.id.txt_card_title);
+            this.txt_card_date      = (TextView) itemView.findViewById(R.id.txt_card_date);
+            this.txt_card_place     = (TextView) itemView.findViewById(R.id.txt_card_place);
+            this.txt_card_time      = (TextView) itemView.findViewById(R.id.txt_card_time);
+            this.txt_card_people    = (TextView) itemView.findViewById(R.id.txt_card_people);
+            this.txt_card_price     = (TextView) itemView.findViewById(R.id.txt_card_price);
+            this.txt_card_writer    = (TextView) itemView.findViewById(R.id.txt_card_writer);
+            this.txt_card_addr      = (TextView) itemView.findViewById(R.id.txt_card_addr);
 
 //            this.imageViewIcon = (ImageView) itemView.findViewById(R.id.txtStartTime);
         }
@@ -55,17 +63,26 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int listPosition) {
 
-        TextView txtDate = holder.txtDate;
-        TextView txtAddr = holder.txtAddr;
-        TextView txtStartTime = holder.txtStartTime;
-        TextView txtPrice = holder.txtPrice;
+//        TextView txt_card_title     = holder.txt_card_title;
+        TextView txt_card_date      = holder.txt_card_date;
+        TextView txt_card_place     = holder.txt_card_place;
+        TextView txt_card_time      = holder.txt_card_time;
+        TextView txt_card_people    = holder.txt_card_people;
+        TextView txt_card_price     = holder.txt_card_price;
+        TextView txt_card_writer    = holder.txt_card_writer;
+        TextView txt_card_addr      = holder.txt_card_addr;
 
 //        ImageView imageView = holder.imageViewIcon;
 
-        txtDate.setText(listClass.get(listPosition).getDate());
-        txtAddr.setText(listClass.get(listPosition).getAddr());
-        txtStartTime.setText(listClass.get(listPosition).getStartTime());
-        txtPrice.setText(listClass.get(listPosition).getPrice());
+        txt_card_date.setText(  listClass.get(listPosition).getDate());
+        txt_card_place.setText( listClass.get(listPosition).getPlace());
+        String time = listClass.get(listPosition).getStartTime() + "~" + listClass.get(listPosition).getEndTime();
+        txt_card_time.setText(time);
+        String people = listClass.get(listPosition).getCurr_people() + "/" + listClass.get(listPosition).getMax_people();
+        txt_card_people.setText(people);
+        txt_card_price.setText( listClass.get(listPosition).getPrice());
+//        txt_card_writer.setText(listClass.get(listPosition).get());
+        txt_card_addr.setText(  listClass.get(listPosition).getAddr());
 
 //        imageView.setImageResource(listClass.get(listPosition).getImage());
     }

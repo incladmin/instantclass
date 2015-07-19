@@ -13,7 +13,43 @@ public class ClassVO {
     private String place;
     private String addr;
     private String price;
-/**/
+    private String curr_people;
+    private String max_people;
+    private String end_yn;
+    private String del_yn;
+
+    public String getCurr_people() {
+        return curr_people;
+    }
+
+    public void setCurr_people(String curr_people) {
+        this.curr_people = curr_people;
+    }
+
+    public String getMax_people() {
+        return max_people;
+    }
+
+    public void setMax_people(String max_people) {
+        this.max_people = max_people;
+    }
+
+    public String getEnd_yn() {
+        return end_yn;
+    }
+
+    public void setEnd_yn(String end_yn) {
+        this.end_yn = end_yn;
+    }
+
+    public String getDel_yn() {
+        return del_yn;
+    }
+
+    public void setDel_yn(String del_yn) {
+        this.del_yn = del_yn;
+    }
+
     public String getAddr() {
         return addr;
     }

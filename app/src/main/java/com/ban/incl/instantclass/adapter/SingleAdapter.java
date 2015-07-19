@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.util.InclDBUtil;
@@ -46,6 +47,28 @@ public class SingleAdapter extends BaseAdapter {
         }else{
             view = convertView;
         }
+
+        TextView txt_list_title     = (TextView) view.findViewById(R.id.txt_list_title);
+        TextView txt_list_date      = (TextView) view.findViewById(R.id.txt_list_date);
+        TextView txt_list_place     = (TextView) view.findViewById(R.id.txt_list_place);
+        TextView txt_list_time      = (TextView) view.findViewById(R.id.txt_list_time);
+        TextView txt_list_people    = (TextView) view.findViewById(R.id.txt_list_people);
+        TextView txt_list_writer    = (TextView) view.findViewById(R.id.txt_list_writer);
+        TextView txt_list_addr      = (TextView) view.findViewById(R.id.txt_list_addr);
+        TextView txt_list_price      = (TextView) view.findViewById(R.id.txt_list_price);
+
+        txt_list_title.setText(list.get(position).getTitle());
+        txt_list_date.setText(list.get(position).getDate());
+        txt_list_place.setText(list.get(position).getPlace());
+        String time = list.get(position).getStartTime()+"~"+list.get(position).getEndTime();
+        txt_list_time.setText(time);
+        String people = list.get(position).getCurr_people()+"/"+list.get(position).getMax_people();
+        txt_list_people.setText(people);
+//        txt_list_people.setText(list.get(position).g());
+//        txt_list_writer.setText(list.get(position).getw());
+        txt_list_addr.setText(list.get(position).getAddr());
+        txt_list_price.setText(list.get(position).getPrice());
+
 
         return view;
     }
