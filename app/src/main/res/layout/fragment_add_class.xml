@@ -86,8 +86,9 @@
                         android:id="@+id/datePicker"
                         android:calendarViewShown="false"
                         android:datePickerMode="spinner"
-                        android:scaleX="0.3"
-                        android:scaleY="0.3" />
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -97,6 +98,7 @@
                         android:layout_alignLeft="@+id/edtTitle"
                         android:layout_alignStart="@+id/edtTitle"
                         android:width="200dp" />
+
 
                 </TableRow>
 
