@@ -3,6 +3,7 @@ package com.ban.incl.instantclass.util;
 import android.util.Log;
 
 import com.ban.incl.instantclass.vo.ClassVO;
+import com.ban.incl.instantclass.vo.UserVO;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,7 +16,7 @@ import java.util.Map;
 public class InclDBUtil {
 
     public static List<ClassVO> selectAllList() {
-        List<ClassVO> list = new ArrayList<ClassVO>();
+        List<ClassVO> list = new ArrayList<>();
         try {
             String s = new InclDbConnection("SELECT").execute(new HashMap()).get();
             list = ConvertStrToList(s);
@@ -28,7 +29,7 @@ public class InclDBUtil {
     }
 
     public static List<ClassVO> ConvertStrToList(String str) {
-        List<ClassVO> list = new ArrayList<ClassVO>();
+        List<ClassVO> list = new ArrayList<>();
         try{
             JSONObject root = new JSONObject(str);
             JSONArray ja = root.getJSONArray("results");
@@ -62,5 +63,19 @@ public class InclDBUtil {
             Log.d("INCL_DEBUG", "selectListAll Exception");
             e.printStackTrace();
         }
+    }
+
+    public static void selectUserInfo(Map map){
+
+        List<UserVO> userVO = new ArrayList<>();
+
+        try{
+            String s = new InclDbConnection("SELECTUSERINFO").execute(map).get();
+            Log.d("====================",s);
+        }catch(Exception e){
+            Log.d("","");
+            e.printStackTrace();
+        }
+
     }
 }
