@@ -43,8 +43,14 @@ public class InclDBUtil {
                 vo.setContent(jo.getString("content"));
                 vo.setStartTime(jo.getString("start_time"));
                 vo.setEndTime(jo.getString("end_time"));
+                vo.setPlace(jo.getString("place"));
                 vo.setAddr(jo.getString("addr"));
                 vo.setPrice(jo.getString("price"));
+                vo.setDate(jo.getString("date"));
+                vo.setCurr_people(jo.getString("curr_people"));
+                vo.setMax_people(jo.getString("max_people"));
+                vo.setEnd_yn(jo.getString("end_yn"));
+                vo.setDel_yn(jo.getString("del_yn"));
 
                 list.add(vo);
             }
