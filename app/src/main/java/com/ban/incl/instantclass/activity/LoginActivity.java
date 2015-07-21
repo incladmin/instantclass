@@ -30,30 +30,33 @@ public class LoginActivity extends Activity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-                UserVO userVo = new UserVO();
+                UserVO userVO = new UserVO();
 
                 EditText userId = (EditText)findViewById(R.id.userId);
                 EditText password = (EditText)findViewById(R.id.password);
 
-                if(userId==null || password==null){
-                    Log.d("","null check");
+                if(userId.getText().toString().equals("")){
+                    Log.d("### ohGamja ###","null check");
+//                    findViewById(R.id.btn_login).setEnabled(false);
+                }else if(password.getText().toString().equals("")){
+                    Log.d("### ohGamja ###","null check2");
+//                    findViewById(R.id.btn_login).setEnabled(false);
+                }else{
+                    Log.d("### ohGamja ###","null check3");
+//                    findViewById(R.id.btn_login).setEnabled(true);
                 }
 
-                userVo.setUSER_ID(userId.getText().toString());
-                userVo.setPASSWORD(password.getText().toString());
+                userVO.setUSER_ID(userId.getText().toString());
+                userVO.setPASSWORD(password.getText().toString());
+                Map map = InclUtil.ConvertObjtoMap(userVO);
+                userVO = InclDBUtil.selectUserInfo(map);
 
-                Log.d("t=====================", userVo.getUSER_ID());
-                Log.d("t=====================",userVo.getPASSWORD());
-
-                Map map = InclUtil.ConvertObjtoMap(userVo);
-
-                InclDBUtil.selectUserInfo(map);
-
-
-
-
-                //TODO: session
-                intent.putExtra("LOGIN_NAME", "ban");
+                if(userVO.getUSER_ID()!=null) {
+                    intent.putExtra("LOGIN_NAME", userVO.getUSER_ID());
+                }else{
+                    Log.d("### ohGamja ###","return value check");
+                    intent.putExtra("LOGIN_NAME", "ban");
+                }
 
                 startActivity(intent);
             }
