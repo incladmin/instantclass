@@ -71,17 +71,29 @@ public class InclDBUtil {
         }
     }
 
-    public static void selectUserInfo(Map map){
+    public static UserVO selectUserInfo(Map map){
 
-        List<UserVO> userVO = new ArrayList<>();
+        UserVO userVO = new UserVO();
 
         try{
             String s = new InclDbConnection("SELECTUSERINFO").execute(map).get();
-            Log.d("====================",s);
+            Log.d("### ohGamja ###",s);
+
+            if(s!=null){
+                JSONArray array = new JSONArray(s);
+
+                for(int i=0; i<array.length();i++){
+                    JSONObject jsonObj = array.getJSONObject(i);
+                    userVO.setUSER_ID(jsonObj.getString("USER_ID"));
+                    userVO.setPASSWORD(jsonObj.getString("PASSWORD"));
+                }
+            }
+
         }catch(Exception e){
-            Log.d("","");
+            Log.d("### ohGamja ###","exception");
             e.printStackTrace();
         }
 
+        return userVO;
     }
 }
