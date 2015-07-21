@@ -41,11 +41,12 @@
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@null"
                         android:inputType="textPersonName"
                         android:ems="10"
                         android:id="@+id/userId"
                         android:layout_centerInParent="true"
-                        android:hint="ID" />
+                        android:hint="아이디" />
 
                 </RelativeLayout>
 
@@ -65,11 +66,12 @@
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@null"
                         android:inputType="textPassword"
                         android:ems="10"
                         android:id="@+id/password"
                         android:layout_centerInParent="true"
-                        android:hint="PASSWORD" />
+                        android:hint="비밀번호" />
                 </RelativeLayout>
 
                 <RelativeLayout
