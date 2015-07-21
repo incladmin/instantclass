@@ -47,10 +47,6 @@ public class InclDBUtil {
                 vo.setAddr(jo.getString("addr"));
                 vo.setPrice(jo.getString("price"));
                 vo.setDate(jo.getString("date"));
-                vo.setCurr_people(jo.getString("curr_people"));
-                vo.setMax_people(jo.getString("max_people"));
-                vo.setEnd_yn(jo.getString("end_yn"));
-                vo.setDel_yn(jo.getString("del_yn"));
 
                 list.add(vo);
             }
