@@ -20,16 +20,20 @@ import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.fragment.AddClassFragment;
 import com.ban.incl.instantclass.fragment.InclRecyclerFragment;
 import com.ban.incl.instantclass.fragment.MainFragment;
+import com.ban.incl.instantclass.fragment.NavigationDrawerCallbacks;
+import com.ban.incl.instantclass.fragment.NavigationDrawerFragment;
 import com.ban.incl.instantclass.util.InclDbConnection;
 
 import java.util.HashMap;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements NavigationDrawerCallbacks {
 
-    Toolbar toolbar;
-    DrawerLayout dlDrawer;
-    ActionBarDrawerToggle dtToggle;
+    private Toolbar mToolbar;
+    private DrawerLayout dlDrawer;
+//    private ActionBarDrawerToggle dtToggle;
+
+    private NavigationDrawerFragment mNavigationDrawerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,24 +46,33 @@ public class MainActivity extends ActionBarActivity {
                 .replace(R.id.container, MainFragment.newInstance())
                 .commit();
 
-        dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//
+//        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//
+//        dtToggle = new ActionBarDrawerToggle(this, dlDrawer, 0, 0);
+//        dlDrawer.setDrawerListener(dtToggle);
+//
+//        findViewById(R.id.iv_interest).setOnClickListener(mClickListener);
+//        findViewById(R.id.iv_mylist).setOnClickListener(mClickListener);
+//        findViewById(R.id.iv_notice).setOnClickListener(mClickListener);
+//        findViewById(R.id.iv_qna).setOnClickListener(mClickListener);
+//        findViewById(R.id.iv_setting).setOnClickListener(mClickListener);
+//        findViewById(R.id.btn_add_class).setOnClickListener(mClickListener);
+//        findViewById(R.id.iv_login).setOnClickListener(mClickListener);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
-        dtToggle = new ActionBarDrawerToggle(this, dlDrawer, 0, 0);
-        dlDrawer.setDrawerListener(dtToggle);
+        mNavigationDrawerFragment = (NavigationDrawerFragment)
+                getSupportFragmentManager().findFragmentById(R.id.fragment_drawer);
 
-        findViewById(R.id.iv_interest).setOnClickListener(mClickListener);
-        findViewById(R.id.iv_mylist).setOnClickListener(mClickListener);
-        findViewById(R.id.iv_notice).setOnClickListener(mClickListener);
-        findViewById(R.id.iv_qna).setOnClickListener(mClickListener);
-        findViewById(R.id.iv_setting).setOnClickListener(mClickListener);
-        findViewById(R.id.btn_add_class).setOnClickListener(mClickListener);
-        findViewById(R.id.iv_login).setOnClickListener(mClickListener);
+        // Set up the drawer.
+        mNavigationDrawerFragment.setup(R.id.fragment_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
 
         //TODO: session
         Intent intent = getIntent();
@@ -69,6 +82,12 @@ public class MainActivity extends ActionBarActivity {
             TextView txtLogin = (TextView) findViewById(R.id.lbl_login);
             txtLogin.setText(sLoginName);
         }
+    }
+
+    @Override
+    public void onNavigationDrawerItemSelected(int position) {
+        // update the main content by replacing fragments
+        Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
     }
 
     Button.OnClickListener mClickListener = new View.OnClickListener() {
@@ -129,22 +148,24 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-        dtToggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        dtToggle.onConfigurationChanged(newConfig);
-    }
+//    @Override
+//    protected void onPostCreate(Bundle savedInstanceState) {
+//        super.onPostCreate(savedInstanceState);
+//        // Sync the toggle state after onRestoreInstanceState has occurred.
+//        dtToggle.syncState();
+//    }
+//
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//        dtToggle.onConfigurationChanged(newConfig);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
+
+        Toast.makeText(MainActivity.this, "click > " + item.getItemId(), Toast.LENGTH_SHORT).show();
         if (item.getItemId() == R.id.btn_search) {
             Toast.makeText(MainActivity.this, "search button click", Toast.LENGTH_SHORT).show();
         }
@@ -152,10 +173,11 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    /*
     //TODO: back button
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
+        /*
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Closing Activity")
@@ -169,6 +191,6 @@ public class MainActivity extends ActionBarActivity {
                 })
                 .setNegativeButton("No", null)
                 .show();
+                */
     }
-    */
 }

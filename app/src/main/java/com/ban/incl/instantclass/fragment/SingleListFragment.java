@@ -1,4 +1,4 @@
-package com.ban.incl.instantclass;
+package com.ban.incl.instantclass.fragment;
 
 
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.adapter.SingleAdapter;
 
 public class SingleListFragment extends Fragment {

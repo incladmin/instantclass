@@ -78,8 +78,8 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
         txt_card_place.setText( listClass.get(listPosition).getPlace());
         String time = listClass.get(listPosition).getStartTime() + "~" + listClass.get(listPosition).getEndTime();
         txt_card_time.setText(time);
-        String people = listClass.get(listPosition).getCurr_people() + "/" + listClass.get(listPosition).getMax_people();
-        txt_card_people.setText(people);
+//        String people = listClass.get(listPosition).getCurr_people() + "/" + listClass.get(listPosition).getMax_people();
+//        txt_card_people.setText(people);
         txt_card_price.setText( listClass.get(listPosition).getPrice());
 //        txt_card_writer.setText(listClass.get(listPosition).get());
         txt_card_addr.setText(  listClass.get(listPosition).getAddr());

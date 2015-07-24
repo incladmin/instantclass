@@ -1,7 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.androidhuman.example.materialdrawer.fulloverlay.MainFragment">
+    tools:context="com.androidhuman.example.materialdrawer.fulloverlay.MainFragment"
+    android:id="@+id/fragment_main">
 
     <ImageView
         android:layout_width="fill_parent"
@@ -17,7 +18,7 @@
         <include
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            layout="@layout/main_calendar" />
+            layout="@layout/layout_calendar" />
 
         <ScrollView
             android:layout_width="match_parent"

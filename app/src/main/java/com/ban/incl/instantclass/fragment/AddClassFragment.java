@@ -75,38 +75,38 @@ public class AddClassFragment extends Fragment implements View.OnClickListener {
                 ClassVO vo = new ClassVO();
                 //화면에서 사용할 데이터를 셋팅한다.
                 EditText title      = (EditText)getView().findViewById(R.id.edtTitle);
-                EditText lessonDate       = (EditText)getView().findViewById(R.id.edtLessonDtPk);
+//                EditText lessonDate       = (EditText)getView().findViewById(R.id.edtLessonDtPk);
                 EditText startTime  = (EditText)getView().findViewById(R.id.edtStartTime);
                 EditText endTime    = (EditText)getView().findViewById(R.id.edtEndTime);
                 EditText content   = (EditText)getView().findViewById(R.id.edtContent);
                 EditText place      = (EditText)getView().findViewById(R.id.edtPlace);
-                EditText items = (EditText)getView().findViewById(R.id.edtItems);
-                EditText minPeople = (EditText)getView().findViewById(R.id.edtMinPeople);
-                EditText maxPeople = (EditText)getView().findViewById(R.id.edtMaxPeople);
-                EditText account = (EditText)getView().findViewById(R.id.edtAccount);
+//                EditText items = (EditText)getView().findViewById(R.id.edtItems);
+//                EditText minPeople = (EditText)getView().findViewById(R.id.edtMinPeople);
+//                EditText maxPeople = (EditText)getView().findViewById(R.id.edtMaxPeople);
+//                EditText account = (EditText)getView().findViewById(R.id.edtAccount);
 
                 Log.d("insertClass", ">>>>>>>>>>>>>>>>>>>>>>>>>>>..");
                 Log.d("insertClass", title.getText().toString());
-                Log.d("insertClass", lessonDate.getText().toString());
+//                Log.d("insertClass", lessonDate.getText().toString());
                 Log.d("insertClass", startTime.getText().toString());
                 Log.d("insertClass", endTime.getText().toString());
                 Log.d("insertClass", content.getText().toString());
                 Log.d("insertClass", place.getText().toString());
-                Log.d("insertClass", items.getText().toString());
-                Log.d("insertClass", minPeople.getText().toString());
-                Log.d("insertClass", maxPeople.getText().toString());
-                Log.d("insertClass", account.getText().toString());
+//                Log.d("insertClass", items.getText().toString());
+//                Log.d("insertClass", minPeople.getText().toString());
+//                Log.d("insertClass", maxPeople.getText().toString());
+//                Log.d("insertClass", account.getText().toString());
 
                 vo.setTitle(title.getText().toString());
-                vo.setLessonDate(lessonDate.getText().toString());
+//                vo.setLessonDate(lessonDate.getText().toString());
                 vo.setStartTime(startTime.getText().toString());
                 vo.setEndTime(endTime.getText().toString());
                 vo.setContent(content.getText().toString());
                 vo.setPlace(place.getText().toString());
-                vo.setItems(items.getText().toString());
-                vo.setMinPeople(minPeople.getText().toString());
-                vo.setMaxPeople(maxPeople.getText().toString());
-                vo.setAccount(account.getText().toString());
+//                vo.setItems(items.getText().toString());
+//                vo.setMinPeople(minPeople.getText().toString());
+//                vo.setMaxPeople(maxPeople.getText().toString());
+//                vo.setAccount(account.getText().toString());
 
                 Map map = InclUtil.ConvertObjtoMap(vo);
 
@@ -116,15 +116,15 @@ public class AddClassFragment extends Fragment implements View.OnClickListener {
 
                 //Data reset
                 title.setText("");
-                lessonDate.setText("");
+//                lessonDate.setText("");
                 startTime.setText("");
                 endTime.setText("");
                 content.setText("");
                 place.setText("");
-                items.setText("");
-                minPeople.setText("");
-                maxPeople.setText("");
-                account.setText("");
+//                items.setText("");
+//                minPeople.setText("");
+//                maxPeople.setText("");
+//                account.setText("");
                 break;
         }
     }

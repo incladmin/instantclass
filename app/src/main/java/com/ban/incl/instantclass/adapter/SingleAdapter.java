@@ -62,8 +62,8 @@ public class SingleAdapter extends BaseAdapter {
         txt_list_place.setText(list.get(position).getPlace());
         String time = list.get(position).getStartTime()+"~"+list.get(position).getEndTime();
         txt_list_time.setText(time);
-        String people = list.get(position).getCurr_people()+"/"+list.get(position).getMax_people();
-        txt_list_people.setText(people);
+//        String people = list.get(position).getCurr_people()+"/"+list.get(position).getMax_people();
+//        txt_list_people.setText(people);
 //        txt_list_people.setText(list.get(position).g());
 //        txt_list_writer.setText(list.get(position).getw());
         txt_list_addr.setText(list.get(position).getAddr());
