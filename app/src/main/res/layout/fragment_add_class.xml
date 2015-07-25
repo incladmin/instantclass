@@ -36,14 +36,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="강의명"
-                        android:id="@+id/txt_card_people" />
+                        android:id="@+id/txt_title" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/edtTitle"
                         android:width="200dp"
-                        android:layout_alignBottom="@+id/txt_card_people"
+                        android:layout_alignBottom="@+id/txt_title"
                         android:layout_alignLeft="@+id/btn_add_class"
                         android:layout_alignStart="@+id/btn_add_class" />
 
@@ -57,13 +57,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="수업내용"
-                        android:id="@+id/textView3" />
+                        android:id="@+id/txt_content" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/edtContent"
-                        android:layout_above="@+id/textView7"
+                        android:layout_above="@+id/txt_place"
                         android:layout_alignLeft="@+id/edtEndTime"
                         android:layout_alignStart="@+id/edtEndTime"
                         android:width="200dp" />
@@ -78,12 +78,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="수업날짜"
-                        android:id="@+id/txt_card_writer" />
+                        android:id="@+id/txt_lesson_date" />
 
                     <DatePicker
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/datePicker"
+                        android:id="@+id/lessonDatePicker"
                         android:calendarViewShown="false"
                         android:datePickerMode="spinner"
                         android:scaleX="0.5"
@@ -93,8 +93,8 @@
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/edtDate"
-                        android:layout_above="@+id/txt_card_writer"
+                        android:id="@+id/edtLessonDate"
+                        android:layout_above="@+id/txt_lesson_date"
                         android:layout_alignLeft="@+id/edtTitle"
                         android:layout_alignStart="@+id/edtTitle"
                         android:width="200dp" />
@@ -110,21 +110,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="수업시작시간"
-                        android:id="@+id/txt_card_place1" />
+                        android:id="@+id/txt_start_time" />
 
                     <TimePicker
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/timePicker"
+                        android:id="@+id/startTimePicker"
                         android:timePickerMode="spinner" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/edtStartTime"
-                        android:layout_above="@+id/txt_card_place1"
-                        android:layout_alignLeft="@+id/edtDate"
-                        android:layout_alignStart="@+id/edtDate"
+                        android:layout_above="@+id/txt_start_time"
+                        android:layout_alignLeft="@+id/edtLessonDate"
+                        android:layout_alignStart="@+id/edtLessonDate"
                         android:width="200dp" />
 
                 </TableRow>
@@ -137,19 +137,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="수업종료시간"
-                        android:id="@+id/textView6" />
+                        android:id="@+id/txt_end_time" />
 
                     <TimePicker
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/timePicker2"
+                        android:id="@+id/endTimePicker"
                         android:timePickerMode="spinner" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/edtEndTime"
-                        android:layout_alignBottom="@+id/txt_card_place1"
+                        android:layout_alignBottom="@+id/txt_start_time"
                         android:layout_alignLeft="@+id/edtStartTime"
                         android:layout_alignStart="@+id/edtStartTime"
                         android:width="200dp" />
@@ -164,13 +164,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="수업장소"
-                        android:id="@+id/textView7" />
+                        android:id="@+id/txt_place" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/edtPlace"
-                        android:layout_alignBottom="@+id/textView7"
+                        android:layout_alignBottom="@+id/txt_place"
                         android:layout_alignLeft="@+id/edtContent"
                         android:layout_alignStart="@+id/edtContent"
                         android:width="200dp" />
@@ -185,13 +185,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="준비물"
-                        android:id="@+id/textView16" />
+                        android:id="@+id/txt_items" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/editText3"
-                        android:layout_alignBottom="@+id/textView16"
+                        android:id="@+id/edtItems"
+                        android:layout_alignBottom="@+id/txt_items"
                         android:layout_alignLeft="@+id/edtContent"
                         android:layout_alignStart="@+id/edtContent"
                         android:width="200dp" />
@@ -205,16 +205,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="최소인원"
-                        android:id="@+id/textView17" />
+                        android:id="@+id/txt_min_person" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/editText4"
-                        android:layout_alignBottom="@+id/textView17"
+                        android:id="@+id/edtMinPerson"
+                        android:layout_alignBottom="@+id/txt_min_person"
                         android:layout_alignLeft="@+id/edtContent"
                         android:layout_alignStart="@+id/edtContent"
-                        android:width="200dp" />
+                        android:width="200dp"
+                        android:inputType="number" />
                 </TableRow>
 
                 <TableRow
@@ -225,16 +226,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="최대인원"
-                        android:id="@+id/textView18" />
+                        android:id="@+id/txt_max_person" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/editText5"
-                        android:layout_alignBottom="@+id/textView18"
+                        android:id="@+id/edtMaxPerson"
+                        android:layout_alignBottom="@+id/txt_max_person"
                         android:layout_alignLeft="@+id/edtContent"
                         android:layout_alignStart="@+id/edtContent"
-                        android:width="200dp" />
+                        android:width="200dp"
+                        android:inputType="number" />
 
                 </TableRow>
 
@@ -246,16 +248,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="계좌번호"
-                        android:id="@+id/textView19" />
+                        android:id="@+id/txt_account" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/editText6"
-                        android:layout_alignBottom="@+id/textView19"
+                        android:id="@+id/edtAccount"
+                        android:layout_alignBottom="@+id/txt_account"
                         android:layout_alignLeft="@+id/edtContent"
                         android:layout_alignStart="@+id/edtContent"
-                        android:width="200dp" />
+                        android:width="200dp"
+                        android:inputType="number" />
                 </TableRow>
 
             </TableLayout>

@@ -75,14 +75,14 @@ public class AddClassFragment extends Fragment implements View.OnClickListener {
                 ClassVO vo = new ClassVO();
                 //화면에서 사용할 데이터를 셋팅한다.
                 EditText title      = (EditText)getView().findViewById(R.id.edtTitle);
-                EditText lessonDate       = (EditText)getView().findViewById(R.id.edtLessonDtPk);
+                EditText lessonDate       = (EditText)getView().findViewById(R.id.edtLessonDate);
                 EditText startTime  = (EditText)getView().findViewById(R.id.edtStartTime);
                 EditText endTime    = (EditText)getView().findViewById(R.id.edtEndTime);
                 EditText content   = (EditText)getView().findViewById(R.id.edtContent);
                 EditText place      = (EditText)getView().findViewById(R.id.edtPlace);
                 EditText items = (EditText)getView().findViewById(R.id.edtItems);
-                EditText minPeople = (EditText)getView().findViewById(R.id.edtMinPeople);
-                EditText maxPeople = (EditText)getView().findViewById(R.id.edtMaxPeople);
+                EditText minPeople = (EditText)getView().findViewById(R.id.edtMinPerson);
+                EditText maxPeople = (EditText)getView().findViewById(R.id.edtMaxPerson);
                 EditText account = (EditText)getView().findViewById(R.id.edtAccount);
 
                 Log.d("insertClass", ">>>>>>>>>>>>>>>>>>>>>>>>>>>..");
