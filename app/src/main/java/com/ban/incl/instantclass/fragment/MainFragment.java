@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
 
@@ -53,19 +55,19 @@ public class MainFragment extends Fragment {
 
         for (int i = 0; i < 50; i++) {
             if(i != 0) {
-                cal.add(Calendar.DAY_OF_MONTH, 1);
+                cal.add(Calendar.DAY_OF_MONTH, 1);  // 하루씩 증가
             }
 
-            int day = cal.get(Calendar.DAY_OF_MONTH);
-            int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-
-            View v = vi.inflate(R.layout.main_calendar_item, null);
-
-            TextView txtWeek = (TextView)v.findViewById(R.id.txt_calendar_week);
-            TextView txtDay = (TextView)v.findViewById(R.id.txt_calendar_day);
-
-            txtWeek.setText(eDayOfWeek.values()[dayOfWeek-1].toString());
-            txtDay.setText(""+day);
+            View v;
+            if(i == 0) {
+                v = getCalendarDayView(vi, cal, true, false);
+            } else {
+                if(i % 2 == 0) {
+                    v = getCalendarDayView(vi, cal, false, true);
+                } else {
+                    v = getCalendarDayView(vi, cal, false, false);
+                }
+            }
 
             mLayoutCalendar.addView(v, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
@@ -80,6 +82,57 @@ public class MainFragment extends Fragment {
 
         return view;
     }
+
+    public View getCalendarDayView(LayoutInflater vi, Calendar cal, boolean isToday, boolean hasTodo) {
+
+        String year = String.valueOf(cal.get(Calendar.YEAR));
+        String month = String.valueOf(cal.get(Calendar.MONTH) + 1);
+        String day = String.valueOf(cal.get(Calendar.DAY_OF_MONTH));
+        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+
+        View dayView = vi.inflate(R.layout.main_calendar_item, null);
+
+        TextView txtWeek = (TextView)dayView.findViewById(R.id.txt_calendar_week);
+        TextView txtDay = (TextView)dayView.findViewById(R.id.txt_calendar_day);
+        TextView ivFullDate_Hidden = (TextView)dayView.findViewById(R.id.txt_cal_fulldate_hidden);
+
+        ImageView ivTodayBg = (ImageView)dayView.findViewById(R.id.iv_cal_today_bg);
+        ImageView ivTodoBg = (ImageView)dayView.findViewById(R.id.iv_cal_todo_bg);
+
+        dayView.findViewById(R.id.layout_cal_day).setOnClickListener(calendar_click_listener);
+
+        if(isToday) {
+            ivTodayBg.setVisibility(View.VISIBLE);
+        } else {
+            ivTodayBg.setVisibility(View.INVISIBLE);
+        }
+
+        if(hasTodo) {
+            ivTodoBg.setVisibility(View.VISIBLE);
+        } else {
+            ivTodoBg.setVisibility(View.INVISIBLE);
+        }
+
+        txtWeek.setText(eDayOfWeek.values()[dayOfWeek-1].toString());
+        txtDay.setText(""+day);
+
+
+        month   = (month.length() == 1) ? "0" + month   : month;
+        day     = (day.length() == 1)   ? "0" + day     : day;
+
+        ivFullDate_Hidden.setText(year+month+day);
+
+        return dayView;
+    }
+
+    Button.OnClickListener calendar_click_listener = new View.OnClickListener() {
+        public void onClick(View v) {
+
+            TextView ivFullDate_Hidden = (TextView)v.findViewById(R.id.txt_cal_fulldate_hidden);
+
+            Toast.makeText(getActivity(), ivFullDate_Hidden.getText(), Toast.LENGTH_SHORT).show();
+        }
+    };
 
     Button.OnClickListener mainListener = new View.OnClickListener() {
         public void onClick(View v) {
