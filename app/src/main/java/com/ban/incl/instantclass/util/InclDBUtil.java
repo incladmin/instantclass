@@ -47,10 +47,6 @@ public class InclDBUtil {
                 vo.setAddr(jo.getString("addr"));
                 vo.setPrice(jo.getString("price"));
                 vo.setDate(jo.getString("date"));
-                vo.setCurr_people(jo.getString("curr_people"));
-                vo.setMax_people(jo.getString("max_people"));
-                vo.setEnd_yn(jo.getString("end_yn"));
-                vo.setDel_yn(jo.getString("del_yn"));
 
                 list.add(vo);
             }
@@ -71,17 +67,29 @@ public class InclDBUtil {
         }
     }
 
-    public static void selectUserInfo(Map map){
+    public static UserVO selectUserInfo(Map map){
 
-        List<UserVO> userVO = new ArrayList<>();
+        UserVO userVO = new UserVO();
 
         try{
             String s = new InclDbConnection("SELECTUSERINFO").execute(map).get();
-            Log.d("====================",s);
+            Log.d("### ohGamja ###",s);
+
+            if(s!=null){
+                JSONArray array = new JSONArray(s);
+
+                for(int i=0; i<array.length();i++){
+                    JSONObject jsonObj = array.getJSONObject(i);
+                    userVO.setUSER_ID(jsonObj.getString("USER_ID"));
+                    userVO.setPASSWORD(jsonObj.getString("PASSWORD"));
+                }
+            }
+
         }catch(Exception e){
-            Log.d("","");
+            Log.d("### ohGamja ###","exception");
             e.printStackTrace();
         }
 
+        return userVO;
     }
 }

@@ -1,0 +1,98 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ban.incl.instantclass.fragment.NavigationDrawerFragment">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="137dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:background="#000000" >
+
+        <include
+            layout="@layout/dw_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/dw_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView2"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/iv_mylist"
+                    android:background="@drawable/menu_button_mylist"
+                    android:adjustViewBounds="false"
+                    android:clickable="false" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/iv_interest"
+                    android:background="@drawable/menu_button_interest"
+                    android:adjustViewBounds="false"
+                    android:clickable="false"
+                    android:focusableInTouchMode="false" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/iv_setting"
+                    android:background="@drawable/menu_button_setting"
+                    android:adjustViewBounds="false"
+                    android:clickable="false"
+                    android:focusableInTouchMode="false" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/iv_notice"
+                    android:background="@drawable/menu_button_notice"
+                    android:adjustViewBounds="false"
+                    android:clickable="false"
+                    android:focusableInTouchMode="false" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/iv_qna"
+                    android:background="@drawable/menu_button_qna"
+                    android:adjustViewBounds="false"
+                    android:clickable="false"
+                    android:focusableInTouchMode="false" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_regist_class"
+                    android:adjustViewBounds="false"
+                    android:clickable="false"
+                    android:focusableInTouchMode="false"
+                    android:background="@drawable/ic_dw_registration" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView7"
+                    android:src="@drawable/ic_dw_version" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>
