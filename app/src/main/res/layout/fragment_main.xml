@@ -4,12 +4,6 @@
     tools:context="com.androidhuman.example.materialdrawer.fulloverlay.MainFragment"
     android:id="@+id/fragment_main">
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/imageView3"
-        android:background="@drawable/img_bg" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
