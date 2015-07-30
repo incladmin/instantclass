@@ -1,12 +1,10 @@
 package com.ban.incl.instantclass.activity;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -17,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
-import com.ban.incl.instantclass.fragment.AddClassFragment;
+import com.ban.incl.instantclass.fragment.addclass.AddClassFragment;
 import com.ban.incl.instantclass.fragment.InclRecyclerFragment;
 import com.ban.incl.instantclass.fragment.MainFragment;
 import com.ban.incl.instantclass.fragment.NavigationDrawerCallbacks;
@@ -100,6 +98,11 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                             .replace(R.id.container, MainFragment.newInstance())
                             .commit();
                     break;
+                case R.id.btn_add_class_dtl:
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, MainFragment.newInstance())
+                            .commit();
+                    break;
                 case R.id.iv_interest:
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, MainFragment.newInstance())
@@ -127,11 +130,13 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                         Log.d("INCL_DEBUG", "MAIN > iv_qna Exception");
                     }
                     break;
-                case R.id.btn_add_class:
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container, AddClassFragment.newInstance())
-                            .addToBackStack(null)
-                            .commit();
+                case R.id.btn_regist_class:
+                    Intent addClassIntend =  new Intent(getApplicationContext() ,  AddClassActivity.class);
+                    startActivity(addClassIntend);
+//                    fragmentManager.beginTransaction()
+//                            .replace(R.id.container, AddClassFragment.new())
+//                            .addToBackStack(null)
+//                            .commit();
 
                     break;
                 case R.id.iv_login:

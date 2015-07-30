@@ -1,25 +1,25 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ban.incl.instantclass.fragment.addclass.AddClassFragment">
+    tools:context="com.ban.incl.instantclass.fragment.addclass.AddClassDetailFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView android:layout_width="match_parent" android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add class detail"
+        android:id="@+id/btn_add_class_dtl"
+        android:layout_gravity="center_horizontal|bottom" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Add Class"
-        android:id="@+id/textView2"
+        android:text="Add Class Detail"
+        android:id="@+id/textView6"
         android:layout_gravity="center" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Class"
-        android:id="@+id/btn_add_class"
-        android:layout_gravity="center_horizontal|bottom" />
 
 </FrameLayout>

@@ -33,6 +33,7 @@ import android.widget.TextView;
 
 import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.activity.LoginActivity;
+import com.ban.incl.instantclass.activity.AddClassActivity;
 import com.ban.incl.instantclass.util.InclDbConnection;
 
 import java.util.ArrayList;
@@ -143,18 +144,18 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                     }
                     break;
                 case R.id.btn_regist_class:
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container, AddClassFragment.newInstance())
-                            .addToBackStack(null)
-                            .commit();
-
+                    Intent addClassIntent = new Intent(getActivity(), AddClassActivity.class);
+                    startActivity(addClassIntent);
                     break;
+//                    fragmentManager.beginTransaction()
+//                            .replace(R.id.container, AddClassFragment.newInstance())
+//                            .addToBackStack(null)
+//                            .commit();
                 case R.id.iv_login:
                     Intent intent = new Intent(getActivity() , LoginActivity.class);
                     startActivity(intent);
                     break;
             }
-            mDrawerLayout.closeDrawers();
         }
     };
 

@@ -1,7 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ban.incl.instantclass.fragment.addclass.AddClassFragment">
+    tools:context="com.ban.incl.instantclass.fragment.addclass.CertificationFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView android:layout_width="match_parent" android:layout_height="match_parent"
@@ -11,15 +11,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Add Class"
-        android:id="@+id/textView2"
+        android:text="2번 개인 인증롸면입니다"
+        android:id="@+id/textView"
         android:layout_gravity="center" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Class"
-        android:id="@+id/btn_add_class"
+        android:layout_width="141dp"
+        android:layout_height="125dp"
+        android:text="Certification"
+        android:id="@+id/btn_certify"
         android:layout_gravity="center_horizontal|bottom" />
 
 </FrameLayout>

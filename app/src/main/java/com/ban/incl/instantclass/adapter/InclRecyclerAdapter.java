@@ -36,9 +36,9 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
             this.txt_card_date      = (TextView) itemView.findViewById(R.id.txt_card_date);
             this.txt_card_place     = (TextView) itemView.findViewById(R.id.txt_card_place);
             this.txt_card_time      = (TextView) itemView.findViewById(R.id.txt_card_time);
-            this.txt_card_people    = (TextView) itemView.findViewById(R.id.txt_card_people);
+            this.txt_card_people    = (TextView) itemView.findViewById(R.id.txt_title);
             this.txt_card_price     = (TextView) itemView.findViewById(R.id.txt_card_price);
-            this.txt_card_writer    = (TextView) itemView.findViewById(R.id.txt_card_writer);
+            this.txt_card_writer    = (TextView) itemView.findViewById(R.id.txt_lesson_date);
             this.txt_card_addr      = (TextView) itemView.findViewById(R.id.txt_card_addr);
 
 //            this.imageViewIcon = (ImageView) itemView.findViewById(R.id.txtStartTime);

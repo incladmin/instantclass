@@ -1,25 +1,25 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ban.incl.instantclass.fragment.addclass.AddClassFragment">
+    tools:context="com.ban.incl.instantclass.fragment.addclass.AgreementFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView android:layout_width="match_parent" android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="173dp"
+        android:layout_height="266dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Add Class"
-        android:id="@+id/textView2"
+        android:text="1번 화면입니다"
+        android:id="@+id/textView3"
         android:layout_gravity="center" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Class"
-        android:id="@+id/btn_add_class"
+        android:layout_width="145dp"
+        android:layout_height="141dp"
+        android:text="Agree"
+        android:id="@+id/btn_agree"
         android:layout_gravity="center_horizontal|bottom" />
 
 </FrameLayout>
