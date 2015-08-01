@@ -1,15 +1,26 @@
 package com.ban.incl.instantclass.fragment;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
+import com.ban.incl.instantclass.activity.AddClassActivity;
+import com.ban.incl.instantclass.activity.DetailClassActivity;
 import com.ban.incl.instantclass.adapter.InclRecyclerAdapter;
 import com.ban.incl.instantclass.util.InclDBUtil;
 import com.ban.incl.instantclass.vo.ClassVO;
@@ -24,6 +35,9 @@ import java.util.List;
 public class InclRecyclerFragment extends Fragment {
 
     private List<ClassVO> list = new ArrayList<ClassVO>();
+    private RecyclerView recyclerView;
+    private InclRecyclerAdapter adapter;
+    private StaggeredGridLayoutManager mStaggeredLayoutManager;
 
     public InclRecyclerFragment() {
         // Required empty public constructor
@@ -40,47 +54,50 @@ public class InclRecyclerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_card_list, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
 
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        mStaggeredLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
-        RecyclerView.LayoutManager mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-
-        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setLayoutManager(mStaggeredLayoutManager);
 
         list = InclDBUtil.selectAllList();
 
-        InclRecyclerAdapter adapter = new InclRecyclerAdapter(list);
+        adapter = new InclRecyclerAdapter(list);
         recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(onItemClickListener);
 
         return view;
     }
 
-    public void phpFinish(String str) {
-        ClassVO vo;
-        try{
-            JSONObject root = new JSONObject(str);
-            JSONArray ja = root.getJSONArray("results");
+    InclRecyclerAdapter.OnItemClickListener onItemClickListener = new InclRecyclerAdapter.OnItemClickListener() {
+        @Override
+        public void onItemClick(View view, int position) {
+            Log.d("INCL_DEBUG", "onItemClick");
 
-            for(int i=0; i<ja.length(); i++){
-                JSONObject jo = ja.getJSONObject(i);
+//            adapter.notifyItemRemoved(position);
+            Toast.makeText(getActivity(), String.valueOf(position), Toast.LENGTH_SHORT).show();
 
-                vo = new ClassVO();
-                vo.setClassId(jo.getString("class_id"));
-                vo.setTitle(jo.getString("title"));
-                vo.setContent(jo.getString("content"));
-                vo.setDate(jo.getString("date"));
-                vo.setStartTime(jo.getString("start_time"));
-                vo.setEndTime(jo.getString("end_time"));
-                vo.setAddr(jo.getString("addr"));
-                vo.setPrice(jo.getString("price"));
+            Intent intent = new Intent(getActivity(), DetailClassActivity.class);
+            startActivity(intent);
 
-                list.add(vo);
-            }
-        }catch(JSONException e){
-            e.printStackTrace();
+        /*
+            Intent transitionIntent = new Intent(getActivity(), AddClassActivity.class);
+
+            View navigationBar = view.findViewById(android.R.id.navigationBarBackground);
+            View statusBar = view.findViewById(android.R.id.statusBarBackground);
+
+//            Pair<View, String> imagePair = Pair.create((View) placeImage, "tImage");
+//            Pair<View, String> holderPair = Pair.create((View) placeNameHolder, "tNameHolder");
+            Pair<View, String> navPair = Pair.create(navigationBar, Window.NAVIGATION_BAR_BACKGROUND_TRANSITION_NAME);
+            Pair<View, String> statusPair = Pair.create(statusBar, Window.STATUS_BAR_BACKGROUND_TRANSITION_NAME);
+//            Pair<View, String> toolbarPair = Pair.create((View)toolbar, "tActionBar");
+
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), navPair, statusPair);
+            ActivityCompat.startActivity(getActivity(), transitionIntent, options.toBundle());
+        */
         }
-    }
+    };
 
 }

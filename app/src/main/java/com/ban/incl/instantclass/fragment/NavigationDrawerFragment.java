@@ -156,6 +156,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                     startActivity(intent);
                     break;
             }
+            mDrawerLayout.closeDrawers();
         }
     };
 

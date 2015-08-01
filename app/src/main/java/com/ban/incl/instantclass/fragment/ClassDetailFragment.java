@@ -40,6 +40,7 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_class_detail, container, false);
 
+        /*
         phpDown task = new phpDown();
 
         try {
@@ -78,6 +79,7 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
             e.printStackTrace();
         }
 
+*/
 
 //        Button btnAddClass = (Button)view.findViewById(R.id.btn_update_class);
 //        Button btnDeleteAll = (Button)view.findViewById(R.id.btn_del_class);
@@ -91,32 +93,32 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_update_class:
-                ClassVO vo = new ClassVO();
-
-//                EditText title      = (EditText)getView().findViewById(R.id.edtUpTitle);
-                EditText date       = (EditText)getView().findViewById(R.id.edtUpDate);
-                EditText startTime  = (EditText)getView().findViewById(R.id.edtUpStartTime);
-                EditText endTime    = (EditText)getView().findViewById(R.id.edtUpEndTime);
-                EditText content   = (EditText)getView().findViewById(R.id.edtUpContent);
-                EditText place      = (EditText)getView().findViewById(R.id.edtUpPlace);
-
-//                vo.setTitle(title.getText().toString());
-                vo.setDate(date.getText().toString());
-                vo.setStartTime(startTime.getText().toString());
-                vo.setEndTime(endTime.getText().toString());
-                vo.setContent(content.getText().toString());
-                vo.setPlace(place.getText().toString());
-
-                phpDown task = new phpDown();
-
-
-
-                Toast.makeText(getActivity(), "Update", Toast.LENGTH_SHORT).show();
-
-                break;
-            case R.id.btn_del_class:
-                break;
+//            case R.id.btn_update_class:
+//                ClassVO vo = new ClassVO();
+//
+////                EditText title      = (EditText)getView().findViewById(R.id.edtUpTitle);
+//                EditText date       = (EditText)getView().findViewById(R.id.edtUpDate);
+//                EditText startTime  = (EditText)getView().findViewById(R.id.edtUpStartTime);
+//                EditText endTime    = (EditText)getView().findViewById(R.id.edtUpEndTime);
+//                EditText content   = (EditText)getView().findViewById(R.id.edtUpContent);
+//                EditText place      = (EditText)getView().findViewById(R.id.edtUpPlace);
+//
+////                vo.setTitle(title.getText().toString());
+//                vo.setDate(date.getText().toString());
+//                vo.setStartTime(startTime.getText().toString());
+//                vo.setEndTime(endTime.getText().toString());
+//                vo.setContent(content.getText().toString());
+//                vo.setPlace(place.getText().toString());
+//
+//                phpDown task = new phpDown();
+//
+//
+//
+//                Toast.makeText(getActivity(), "Update", Toast.LENGTH_SHORT).show();
+//
+//                break;
+//            case R.id.btn_del_class:
+//                break;
         }
     }
 }

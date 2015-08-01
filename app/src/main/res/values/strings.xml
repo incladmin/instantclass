@@ -28,4 +28,5 @@
     <string name="drawer_open">Menu opened</string>
     <string name="drawer_close">Menu closed</string>
     <string name="title_activity_add_class">AddClassActivity</string>
+    <string name="title_activity_detail_class">DetailClassActivity</string>
 </resources>

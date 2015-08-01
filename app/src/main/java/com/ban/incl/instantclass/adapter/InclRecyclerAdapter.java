@@ -14,11 +14,13 @@ import java.util.List;
 /**
  * Created by sc.ban on 2015.06.28
  */
-public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapter.MyViewHolder> {
+public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapter.MyViewHolder>  {
 
     private List<ClassVO> listClass;
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    OnItemClickListener mItemClickListener;
+
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView txt_card_title;
         TextView txt_card_date;
         TextView txt_card_place;
@@ -42,6 +44,14 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
             this.txt_card_addr      = (TextView) itemView.findViewById(R.id.txt_card_addr);
 
 //            this.imageViewIcon = (ImageView) itemView.findViewById(R.id.txtStartTime);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (mItemClickListener != null) {
+                mItemClickListener.onItemClick(itemView, getPosition());
+            }
         }
     }
 
@@ -51,13 +61,8 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cards_layout, parent, false);
-
-//        view.setOnClickListener(MainActivity.myOnClickListener);
-
-        MyViewHolder myViewHolder = new MyViewHolder(view);
-        return myViewHolder;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cards_layout, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
@@ -92,4 +97,11 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
         return listClass.size();
     }
 
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+    public void setOnItemClickListener(final OnItemClickListener mItemClickListener) {
+        this.mItemClickListener = mItemClickListener;
+    }
 }

@@ -11,19 +11,10 @@
         android:orientation="vertical"
         android:background="@color/myWindowBackground">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <include
             android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:minHeight="32dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView6"
-                android:src="@drawable/ic_tb_home" />
-
-        </android.support.v7.widget.Toolbar>
+            android:layout_height="wrap_content"
+            layout="@layout/toolbar_main" />
 
         <FrameLayout
             android:id="@+id/container"
