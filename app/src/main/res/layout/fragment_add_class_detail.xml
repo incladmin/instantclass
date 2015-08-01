@@ -4,8 +4,9 @@
     tools:context="com.ban.incl.instantclass.fragment.addclass.AddClassDetailFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment"
+        android:background="#EFEFEF" />
 
     <Button
         android:layout_width="wrap_content"
@@ -21,5 +22,11 @@
         android:text="Add Class Detail"
         android:id="@+id/textView6"
         android:layout_gravity="center" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|top"></LinearLayout>
 
 </FrameLayout>
