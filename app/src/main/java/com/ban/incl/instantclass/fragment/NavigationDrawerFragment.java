@@ -115,7 +115,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                     break;
                 case R.id.iv_interest:
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, ViewPagerFragment.newInstance())
+                            .replace(R.id.container, SingleListFragment.newInstance())
                             .addToBackStack(null)
                             .commit();
                     break;
@@ -126,20 +126,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                             .commit();
                     break;
                 case R.id.iv_notice:
-                    //TODO : 삭제
-                    try {
-                        String s = new InclDbConnection("SELECT").execute(new HashMap()).get();
-                    } catch (Exception e) {
-                        Log.d("INCL_DEBUG", "MAIN > iv_notice Exception");
-                    }
                     break;
                 case R.id.iv_qna:
-                    // TODO : 삭제
-                    try {
-                        String s = new InclDbConnection("DETAIL").execute(new HashMap()).get();
-                    } catch (Exception e) {
-                        Log.d("INCL_DEBUG", "MAIN > iv_qna Exception");
-                    }
                     break;
                 case R.id.btn_regist_class:
                     Intent addClassIntent = new Intent(getActivity(), AddClassActivity.class);

@@ -49,8 +49,7 @@ public class InclRecyclerFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_card_list, container, false);
 
@@ -61,14 +60,26 @@ public class InclRecyclerFragment extends Fragment {
 
         recyclerView.setLayoutManager(mStaggeredLayoutManager);
 
+//        list = InclDBUtil.selectAllList();
+//
+//        adapter = new InclRecyclerAdapter(list);
+//        recyclerView.setAdapter(adapter);
+//
+//        adapter.setOnItemClickListener(onItemClickListener);
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
         list = InclDBUtil.selectAllList();
 
         adapter = new InclRecyclerAdapter(list);
         recyclerView.setAdapter(adapter);
 
         adapter.setOnItemClickListener(onItemClickListener);
-
-        return view;
     }
 
     InclRecyclerAdapter.OnItemClickListener onItemClickListener = new InclRecyclerAdapter.OnItemClickListener() {

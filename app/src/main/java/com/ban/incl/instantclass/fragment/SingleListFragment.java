@@ -29,12 +29,22 @@ public class SingleListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_single_list, container, false);
 
-        ListView list = (ListView)view.findViewById(R.id.singleList);
-
-        SingleAdapter adapter = new SingleAdapter(view.getContext());
-        list.setAdapter(adapter);
+//        ListView list = (ListView)view.findViewById(R.id.singleList);
+//
+//        SingleAdapter adapter = new SingleAdapter(view.getContext());
+//        list.setAdapter(adapter);
 
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        ListView list = (ListView)getView().findViewById(R.id.singleList);
+
+        SingleAdapter adapter = new SingleAdapter(getView().getContext());
+        list.setAdapter(adapter);
     }
 
 

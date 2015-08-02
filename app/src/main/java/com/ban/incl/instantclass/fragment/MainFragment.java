@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
+import com.ban.incl.instantclass.ViewPagerFragment;
 
 import java.util.Calendar;
 
@@ -101,13 +102,13 @@ public class MainFragment extends Fragment {
 //                    break;
                 case R.id.btn_main_region:
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, SingleListFragment.newInstance())
+                            .replace(R.id.container, ViewPagerFragment.newInstance("REGION"))
                             .addToBackStack(null)
                             .commit();
                     break;
                 case R.id.btn_main_all:
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, SingleListFragment.newInstance())
+                            .replace(R.id.container, ViewPagerFragment.newInstance("ALL"))
                             .addToBackStack(null)
                             .commit();
                     break;
