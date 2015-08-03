@@ -1,8 +1,12 @@
 package com.ban.incl.instantclass.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.graphics.ColorUtils;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,9 +63,24 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle != null) {
+            // has session
             String sLoginName = bundle.getString("LOGIN_NAME");
             TextView txtLogin = (TextView) findViewById(R.id.txt_login);
             txtLogin.setText(sLoginName);
+
+            ImageView ivModifyProfile = (ImageView) findViewById(R.id.iv_mofify_profile);
+            ivModifyProfile.setVisibility(View.VISIBLE);
+            findViewById(R.id.iv_login).setOnClickListener(null);
+            findViewById(R.id.iv_login).setBackgroundColor(Color.rgb(32,32,32));
+        } else {
+            // empty session
+            TextView txtLogin = (TextView) findViewById(R.id.txt_login);
+            txtLogin.setText("Login");
+
+            ImageView ivModifyProfile = (ImageView) findViewById(R.id.iv_mofify_profile);
+            ivModifyProfile.setVisibility(View.INVISIBLE);
+            findViewById(R.id.iv_login).setOnClickListener(mNavigationDrawerFragment.mClickListener);
+            findViewById(R.id.iv_login).setBackgroundResource(R.drawable.drawer_button);
         }
     }
 

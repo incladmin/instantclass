@@ -62,10 +62,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Log In"
+                android:text="Login"
                 android:id="@+id/txt_login"
                 android:layout_centerInParent="true"
                 android:textColor="#808080" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/iv_mofify_profile"
+                android:src="@drawable/ic_dw_profile"
+                android:scaleType="matrix"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/txt_login"
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <ScrollView
@@ -101,7 +111,7 @@
                         android:src="@drawable/ic_mylist"
                         android:scaleType="matrix"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp" />
+                        android:layout_marginLeft="23dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -134,7 +144,7 @@
                         android:src="@drawable/ic_interest"
                         android:scaleType="matrix"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp" />
+                        android:layout_marginLeft="23dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -166,7 +176,7 @@
                         android:src="@drawable/ic_setting"
                         android:scaleType="matrix"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp" />
+                        android:layout_marginLeft="23dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -198,7 +208,7 @@
                         android:src="@drawable/ic_notice"
                         android:scaleType="matrix"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp" />
+                        android:layout_marginLeft="23dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -230,7 +240,7 @@
                         android:src="@drawable/ic_qna"
                         android:scaleType="matrix"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp" />
+                        android:layout_marginLeft="23dp" />
 
                     <TextView
                         android:layout_width="wrap_content"

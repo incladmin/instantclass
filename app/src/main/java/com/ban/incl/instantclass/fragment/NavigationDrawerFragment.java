@@ -103,7 +103,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         return view;
     }
 
-    Button.OnClickListener mClickListener = new View.OnClickListener() {
+    public Button.OnClickListener mClickListener = new View.OnClickListener() {
         public void onClick(View v) {
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             switch (v.getId()) {
