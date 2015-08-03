@@ -16,7 +16,7 @@
     <color name="myTextPrimaryColor">#212121</color>
     <color name="myNavigationColor">#45FFFFFF</color>
 
-    <color name="drawer_pressed">#B0B0B0</color>
+    <color name="drawer_pressed">#000000</color>
     <color name="drawer_unpressed">#202020</color>
 
 </resources>
