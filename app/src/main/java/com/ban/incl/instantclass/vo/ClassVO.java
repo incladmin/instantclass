@@ -20,6 +20,36 @@ public class ClassVO {
     private String maxPeople;
     private String account;
 
+    public String getBank() {
+        return bank;
+    }
+
+    public void setBank(String bank) {
+        this.bank = bank;
+    }
+
+    private String bank;
+
+    public String getMinPerson() {
+        return minPerson;
+    }
+
+    public void setMinPerson(String minPerson) {
+        this.minPerson = minPerson;
+    }
+
+    private String minPerson;
+
+    public String getMaxPerson() {
+        return maxPerson;
+    }
+
+    public void setMaxPerson(String maxPerson) {
+        this.maxPerson = maxPerson;
+    }
+
+    private String maxPerson;
+
 
     public String getAddr() {
         return addr;
