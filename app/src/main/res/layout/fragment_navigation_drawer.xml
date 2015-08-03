@@ -13,70 +13,239 @@
         android:orientation="vertical"
         android:background="#000000" >
 
-        <include
-            layout="@layout/dw_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" >
 
-        <include
-            layout="@layout/dw_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView14"
+                android:background="#000000" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView17"
+                android:background="#202020"
+                android:layout_margin="2dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/iv_my_photo"
+                    android:src="@drawable/ic_dw_photo_none"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="matrix"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/iv_login"
+                android:background="@drawable/drawer_button"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log In"
+                android:id="@+id/txt_login"
+                android:layout_centerInParent="true"
+                android:textColor="#808080" />
+        </RelativeLayout>
 
         <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/scrollView2"
-            android:scrollbars="none" >
+            android:scrollbars="none"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-                <ImageButton
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/iv_mylist"
-                    android:background="@drawable/menu_button_mylist"
-                    android:adjustViewBounds="false"
-                    android:clickable="false" />
+                    android:layout_height="56dp"
+                    android:layout_marginTop="2dp">
 
-                <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/iv_interest"
-                    android:background="@drawable/menu_button_interest"
-                    android:adjustViewBounds="false"
-                    android:clickable="false"
-                    android:focusableInTouchMode="false" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/iv_mylist"
+                        android:background="@drawable/drawer_button"
+                        android:clickable="true"
+                        android:focusable="true" />
 
-                <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/iv_setting"
-                    android:background="@drawable/menu_button_setting"
-                    android:adjustViewBounds="false"
-                    android:clickable="false"
-                    android:focusableInTouchMode="false" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView15"
+                        android:src="@drawable/ic_mylist"
+                        android:scaleType="matrix"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp" />
 
-                <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/iv_notice"
-                    android:background="@drawable/menu_button_notice"
-                    android:adjustViewBounds="false"
-                    android:clickable="false"
-                    android:focusableInTouchMode="false" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="수강내역"
+                        android:id="@+id/textView11"
+                        android:layout_toRightOf="@+id/imageView15"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#808080" />
 
-                <ImageButton
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/iv_qna"
-                    android:background="@drawable/menu_button_qna"
-                    android:adjustViewBounds="false"
-                    android:clickable="false"
-                    android:focusableInTouchMode="false" />
+                    android:layout_height="56dp"
+                    android:layout_marginTop="2dp" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/iv_interest"
+                        android:background="@drawable/drawer_button"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView16"
+                        android:src="@drawable/ic_interest"
+                        android:scaleType="matrix"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="관심목록"
+                        android:id="@+id/textView12"
+                        android:layout_toRightOf="@+id/imageView16"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#808080" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="2dp" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/iv_setting"
+                        android:background="@drawable/drawer_button"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView18"
+                        android:src="@drawable/ic_setting"
+                        android:scaleType="matrix"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="환경설정"
+                        android:id="@+id/textView13"
+                        android:layout_toRightOf="@+id/imageView18"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#808080" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="2dp" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/iv_notice"
+                        android:background="@drawable/drawer_button"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView20"
+                        android:src="@drawable/ic_notice"
+                        android:scaleType="matrix"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:id="@+id/textView14"
+                        android:layout_toRightOf="@+id/imageView20"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#808080" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="2dp" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/iv_qna"
+                        android:background="@drawable/drawer_button"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView22"
+                        android:src="@drawable/ic_qna"
+                        android:scaleType="matrix"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="질의응답"
+                        android:id="@+id/textView15"
+                        android:layout_toRightOf="@+id/imageView22"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#808080" />
+                </RelativeLayout>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -85,14 +254,32 @@
                     android:adjustViewBounds="false"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
-                    android:background="@drawable/ic_dw_registration" />
+                    android:background="@drawable/ic_dw_registration"
+                    android:layout_marginTop="2dp" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageView7"
-                    android:src="@drawable/ic_dw_version" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageView7"
+                        android:layout_marginTop="2dp"
+                        android:background="#202020" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ver. 1.0"
+                        android:id="@+id/textView16"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:textColor="#808080" />
+                </RelativeLayout>
+
             </LinearLayout>
         </ScrollView>
+
     </LinearLayout>
 </FrameLayout>

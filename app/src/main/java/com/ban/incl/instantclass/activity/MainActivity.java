@@ -44,25 +44,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 .replace(R.id.container, MainFragment.newInstance())
                 .commit();
 
-//        dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//
-//        toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
-//
-//        dtToggle = new ActionBarDrawerToggle(this, dlDrawer, 0, 0);
-//        dlDrawer.setDrawerListener(dtToggle);
-//
-//        findViewById(R.id.iv_interest).setOnClickListener(mClickListener);
-//        findViewById(R.id.iv_mylist).setOnClickListener(mClickListener);
-//        findViewById(R.id.iv_notice).setOnClickListener(mClickListener);
-//        findViewById(R.id.iv_qna).setOnClickListener(mClickListener);
-//        findViewById(R.id.iv_setting).setOnClickListener(mClickListener);
-//        findViewById(R.id.btn_add_class).setOnClickListener(mClickListener);
-//        findViewById(R.id.iv_login).setOnClickListener(mClickListener);
-
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -78,7 +59,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         Bundle bundle = intent.getExtras();
         if(bundle != null) {
             String sLoginName = bundle.getString("LOGIN_NAME");
-            TextView txtLogin = (TextView) findViewById(R.id.lbl_login);
+            TextView txtLogin = (TextView) findViewById(R.id.txt_login);
             txtLogin.setText(sLoginName);
         }
     }
@@ -89,83 +70,11 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
     }
 
-    Button.OnClickListener mClickListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            switch (v.getId()) {
-                case R.id.iv_mylist:
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container, MainFragment.newInstance())
-                            .commit();
-                    break;
-                case R.id.btn_add_class_dtl:
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container, MainFragment.newInstance())
-                            .commit();
-                    break;
-                case R.id.iv_interest:
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container, MainFragment.newInstance())
-                            .commit();
-                    break;
-                case R.id.iv_setting:
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container, InclRecyclerFragment.newInstance())
-                            .addToBackStack(null)
-                            .commit();
-                    break;
-                case R.id.iv_notice:
-                    //TODO : 삭제
-                    try {
-                        String s = new InclDbConnection("SELECT").execute(new HashMap()).get();
-                    } catch (Exception e) {
-                        Log.d("INCL_DEBUG", "MAIN > iv_notice Exception");
-                    }
-                    break;
-                case R.id.iv_qna:
-                    // TODO : 삭제
-                    try {
-                        String s = new InclDbConnection("DETAIL").execute(new HashMap()).get();
-                    } catch (Exception e) {
-                        Log.d("INCL_DEBUG", "MAIN > iv_qna Exception");
-                    }
-                    break;
-                case R.id.btn_regist_class:
-                    Intent addClassIntend =  new Intent(getApplicationContext() ,  AddClassActivity.class);
-                    startActivity(addClassIntend);
-//                    fragmentManager.beginTransaction()
-//                            .replace(R.id.container, AddClassFragment.new())
-//                            .addToBackStack(null)
-//                            .commit();
-
-                    break;
-                case R.id.iv_login:
-                    Intent intent = new Intent(getApplicationContext() , LoginActivity.class);
-                    startActivity(intent);
-                    break;
-            }
-            dlDrawer.closeDrawers();
-        }
-    };
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
-//    @Override
-//    protected void onPostCreate(Bundle savedInstanceState) {
-//        super.onPostCreate(savedInstanceState);
-//        // Sync the toggle state after onRestoreInstanceState has occurred.
-//        dtToggle.syncState();
-//    }
-//
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        super.onConfigurationChanged(newConfig);
-//        dtToggle.onConfigurationChanged(newConfig);
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

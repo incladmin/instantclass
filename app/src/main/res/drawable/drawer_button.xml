@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <item android:drawable = "@drawable/ic_dw_interest_select" android:state_pressed = "true"/>
-    <item android:drawable = "@drawable/ic_dw_interest" />
+    <item android:drawable = "@color/drawer_pressed" android:state_pressed = "true"/>
+    <item android:drawable = "@color/drawer_unpressed" />
 </selector>
 
     <!--android:state_enabled = 현재 사용 가능 상태일 경우 (유무)-->
