@@ -43,7 +43,10 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -56,12 +59,17 @@
                     android:layout_height="wrap_content"
                     android:text="2015.08.05"
                     android:id="@+id/textView19"
-                    android:layout_toRightOf="@+id/textView18" />
+                    android:layout_toRightOf="@+id/textView18"
+                    android:textColor="#000"
+                    android:layout_marginLeft="10dp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,14 +80,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2015.08.05"
+                    android:text="08:00 ~ 17:00"
                     android:id="@+id/textView24"
-                    android:layout_toRightOf="@+id/textView23" />
+                    android:layout_toRightOf="@+id/textView23"
+                    android:textColor="#000"
+                    android:layout_marginLeft="10dp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -90,14 +103,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2015.08.05"
+                    android:text="오리역"
                     android:id="@+id/textView26"
-                    android:layout_toRightOf="@+id/textView25" />
+                    android:layout_toRightOf="@+id/textView25"
+                    android:textColor="#000"
+                    android:layout_marginLeft="10dp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -108,15 +126,20 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2015.08.05"
+                    android:text="1명"
                     android:id="@+id/textView28"
-                    android:layout_toRightOf="@+id/textView27" />
+                    android:layout_toRightOf="@+id/textView27"
+                    android:textColor="#000"
+                    android:layout_marginLeft="10dp" />
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -127,53 +150,80 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2015.08.05"
+                    android:text="20,000원"
                     android:id="@+id/textView30"
-                    android:layout_toRightOf="@+id/textView29" />
+                    android:layout_toRightOf="@+id/textView29"
+                    android:textColor="#000"
+                    android:layout_marginLeft="10dp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="20dp">
 
-                <ImageView
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView19"
-                    android:src="@drawable/ic_list_profile" />
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp">
 
-                <TextView
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView19"
+                        android:src="@drawable/ic_list_profile" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="강사보기"
+                        android:id="@+id/txt_show_t"
+                        android:layout_toRightOf="@+id/imageView19"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="강사보기"
-                    android:id="@+id/txt_show_t"
-                    android:layout_toRightOf="@+id/imageView19" />
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageView21"
-                    android:src="@drawable/ic_list_profile"
-                    android:layout_toRightOf="@+id/txt_show_t" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView21"
+                        android:src="@drawable/ic_list_profile" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2015.08.05"
-                    android:id="@+id/관심등록"
-                    android:layout_toRightOf="@+id/imageView21" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="관심등록"
+                        android:id="@+id/관심등록"
+                        android:layout_toRightOf="@+id/imageView21"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp" />
+                </RelativeLayout>
+
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="20dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/imageView23"
-                    android:layout_alignParentEnd="false"
-                    android:background="@drawable/detail_view_regist_button" />
+                    android:background="@drawable/button_red"
+                    android:clickable="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -189,7 +239,10 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
