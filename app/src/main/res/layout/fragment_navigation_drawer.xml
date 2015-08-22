@@ -79,7 +79,7 @@
         </RelativeLayout>
 
         <ScrollView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/scrollView2"
             android:scrollbars="none"
@@ -253,15 +253,26 @@
                         android:textColor="#808080" />
                 </RelativeLayout>
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btn_regist_class"
-                    android:adjustViewBounds="false"
-                    android:clickable="false"
-                    android:focusableInTouchMode="false"
-                    android:background="@drawable/ic_dw_registration"
-                    android:layout_marginTop="2dp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/btn_regist_class"
+                        android:background="@drawable/button_red"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="수업 등록"
+                        android:id="@+id/textView33"
+                        android:layout_centerInParent="true"
+                        android:textColor="#FFF" />
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"

@@ -90,8 +90,15 @@ public class InclRecyclerFragment extends Fragment {
 //            adapter.notifyItemRemoved(position);
             Toast.makeText(getActivity(), String.valueOf(position), Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(getActivity(), DetailClassActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(getActivity(), DetailClassActivity.class);
+//            startActivity(intent);
+
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                            .replace(R.id.container, ClassDetailFragment.newInstance())
+                            .addToBackStack(null)
+                            .commit();
+
 
         /*
             Intent transitionIntent = new Intent(getActivity(), AddClassActivity.class);

@@ -1,26 +1,241 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ban.incl.instantclass.fragment.addclass.AddClassFragment">
+    tools:context="com.androidhuman.example.materialdrawer.fulloverlay.AddClassFragment"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#EFEFEF">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:background="#EFEFEF" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView4" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Add Class"
-        android:id="@+id/textView2"
-        android:layout_gravity="center" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Class"
-        android:id="@+id/btn_add_class"
-        android:layout_gravity="center_horizontal|bottom" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/title_add_class"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:id="@+id/textView" />
 
-</FrameLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="강의명"
+                        android:id="@+id/txt_title" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edtTitle"
+                        android:width="200dp"
+                        android:layout_alignBottom="@+id/txt_title"
+                        android:layout_alignLeft="@+id/btn_add_class"
+                        android:layout_alignStart="@+id/btn_add_class" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="수업날짜"
+                        android:id="@+id/txt_lesson_date" />
+
+                    <DatePicker
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lessonDatePicker"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edtLessonDate"
+                        android:layout_above="@+id/txt_lesson_date"
+                        android:layout_alignLeft="@+id/edtTitle"
+                        android:layout_alignStart="@+id/edtTitle"
+                        android:width="200dp" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="수업시작시간"
+                        android:id="@+id/txt_start_time" />
+
+                    <TimePicker
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/startTimePicker"
+                        android:timePickerMode="spinner" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edtStartTime"
+                        android:layout_above="@+id/txt_start_time"
+                        android:layout_alignLeft="@+id/edtLessonDate"
+                        android:layout_alignStart="@+id/edtLessonDate"
+                        android:width="200dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="수업종료시간"
+                        android:id="@+id/txt_end_time" />
+
+                    <TimePicker
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/endTimePicker"
+                        android:timePickerMode="spinner" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edtEndTime"
+                        android:layout_alignBottom="@+id/txt_start_time"
+                        android:layout_alignLeft="@+id/edtStartTime"
+                        android:layout_alignStart="@+id/edtStartTime"
+                        android:width="200dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="수업장소"
+                        android:id="@+id/txt_place" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edtPlace"
+                        android:layout_alignBottom="@+id/txt_place"
+                        android:layout_alignLeft="@+id/edtContent"
+                        android:layout_alignStart="@+id/edtContent"
+                        android:width="200dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="최소인원"
+                        android:id="@+id/txt_min_person" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edtMinPerson"
+                        android:layout_alignBottom="@+id/txt_min_person"
+                        android:layout_alignLeft="@+id/edtContent"
+                        android:layout_alignStart="@+id/edtContent"
+                        android:width="200dp"
+                        android:inputType="number" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="최대인원"
+                        android:id="@+id/txt_max_person" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edtMaxPerson"
+                        android:layout_alignBottom="@+id/txt_max_person"
+                        android:layout_alignLeft="@+id/edtContent"
+                        android:layout_alignStart="@+id/edtContent"
+                        android:width="200dp"
+                        android:inputType="number" />
+
+                </TableRow>
+
+            </TableLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/relativeLayout3" >
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_add_class"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/menu_button_agree"
+                    android:background="@drawable/img_regi_button_1_2"
+                    android:layout_alignParentTop="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="확인"
+                    android:id="@+id/textView6"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@android:color/white"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

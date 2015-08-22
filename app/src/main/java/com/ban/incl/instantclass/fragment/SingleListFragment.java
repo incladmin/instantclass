@@ -3,15 +3,19 @@ package com.ban.incl.instantclass.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.adapter.SingleAdapter;
+import com.ban.incl.instantclass.vo.ClassVO;
 
-public class SingleListFragment extends Fragment {
+public class SingleListFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     public SingleListFragment() {
 
@@ -45,7 +49,22 @@ public class SingleListFragment extends Fragment {
 
         SingleAdapter adapter = new SingleAdapter(getView().getContext());
         list.setAdapter(adapter);
+
+        list.setOnItemClickListener(this);
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+        ClassVO vo = (ClassVO)view.getTag();
+
+        Toast.makeText(getActivity(), vo.getTitle() + ":: " + position, Toast.LENGTH_SHORT).show();
+
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, ClassDetailFragment.newInstance())
+                .addToBackStack(null)
+                .commit();
+    }
 }

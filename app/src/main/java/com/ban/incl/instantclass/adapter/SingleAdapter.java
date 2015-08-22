@@ -48,6 +48,8 @@ public class SingleAdapter extends BaseAdapter {
             view = convertView;
         }
 
+        view.setTag(list.get(position));
+
         TextView txt_list_title     = (TextView) view.findViewById(R.id.txt_list_title);
         TextView txt_list_date      = (TextView) view.findViewById(R.id.txt_list_date);
         TextView txt_list_place     = (TextView) view.findViewById(R.id.txt_list_place);
@@ -72,4 +74,5 @@ public class SingleAdapter extends BaseAdapter {
 
         return view;
     }
+
 }
