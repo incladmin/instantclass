@@ -53,10 +53,10 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         //getActionBar().setTitle("설정");
 
         Preference pAppdName = (Preference)findPreference("pwdChg");
-        Preference pAppVersion = (Preference)findPreference("keycontact");
+       // Preference pAppVersion = (Preference)findPreference("keycontact");
 
         pAppdName.setOnPreferenceClickListener(this);
-        pAppVersion.setOnPreferenceClickListener(this);
+        //pAppVersion.setOnPreferenceClickListener(this);
     }
 
     @Override
