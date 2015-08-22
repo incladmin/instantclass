@@ -23,6 +23,7 @@
     <string name="hello_blank_fragment">메인 페이지입니다.</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_splash">splash</string>
+    <string name="title_activity_setting">Setting Activity</string>
 
 
     <string name="drawer_open">Menu opened</string>
