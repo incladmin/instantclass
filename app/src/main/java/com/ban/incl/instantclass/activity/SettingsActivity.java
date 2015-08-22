@@ -53,10 +53,12 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         //getActionBar().setTitle("설정");
 
         Preference pAppdName = (Preference)findPreference("pwdChg");
-       // Preference pAppVersion = (Preference)findPreference("keycontact");
+        Preference pAppPolicy = (Preference)findPreference("keyPolService");
+        Preference pAppPolicyGps = (Preference)findPreference("keyPolGps");
 
         pAppdName.setOnPreferenceClickListener(this);
-        //pAppVersion.setOnPreferenceClickListener(this);
+        pAppPolicy.setOnPreferenceClickListener(this);
+        pAppPolicyGps.setOnPreferenceClickListener(this);
     }
 
     @Override
@@ -68,8 +70,15 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
-        else if(preference.getKey().equals("keycontact"))
+        else if(preference.getKey().equals("keyPolService"))
         {
+            Intent addClassIntent = new Intent(this, AddClassActivity.class);
+            startActivity(addClassIntent);
+        }
+        else if(preference.getKey().equals("keyPolGps"))
+        {
+            Intent addClassIntent = new Intent(this, AddClassActivity.class);
+            startActivity(addClassIntent);
         }
         return false;
     }
