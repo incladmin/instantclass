@@ -32,6 +32,7 @@ import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.ViewPagerFragment;
 import com.ban.incl.instantclass.activity.AddClassActivity;
 import com.ban.incl.instantclass.activity.LoginActivity;
+import com.ban.incl.instantclass.activity.SettingsActivity;
 import com.ban.incl.instantclass.util.InclDbConnection;
 
 import java.util.HashMap;
@@ -120,10 +121,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                             .commit();
                     break;
                 case R.id.iv_setting:
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container, SingleListFragment.newInstance())
-                            .addToBackStack(null)
-                            .commit();
+                    Intent intentSetting = new Intent(getActivity() , SettingsActivity.class);
+                    startActivity(intentSetting);
                     break;
                 case R.id.iv_notice:
                     break;
