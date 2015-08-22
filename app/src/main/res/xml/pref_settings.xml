@@ -2,10 +2,45 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <Preference
         android:key="pwdChg"
-        android:title="비밀번호 변경" />
+        android:title="비밀번호 설정" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="usePush"
+        android:title="푸쉬 알림" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="agreeGps"
+        android:title="위치정보 수집 동의" />
+
+    <PreferenceCategory
+        android:key="keyPolicy"
+        android:title="약관" >
+        <Preference
+            android:key="keyPolService"
+            android:title="서비스 이용약관" />
+        <Preference
+            android:key="keyPolGps"
+            android:title="위치정보 이용약관" />
+        <Preference
+            android:key="keyPolRepay"
+            android:title="환불정책" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="keySupport"
+        android:title="서비스 지원" >
+        <Preference
+            android:key="keyEmail"
+            android:title="문의메일 / 오류신고" />
+        <Preference
+            android:key="keyOut"
+            android:title="탈퇴" />
+    </PreferenceCategory>
+
     <Preference
-        android:key="keyhelp"
-        android:title="고객센터" />
+        android:key="keyLogout"
+        android:title="로그아웃" />
 
 
 </PreferenceScreen>
+
