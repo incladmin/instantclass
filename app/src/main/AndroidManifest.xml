@@ -40,6 +40,10 @@
             android:name=".activity.DetailClassActivity"
             android:label="@string/title_activity_detail_class" >
         </activity>
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_setting" >
+        </activity>
     </application>
 
 </manifest>
