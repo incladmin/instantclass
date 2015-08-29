@@ -38,15 +38,20 @@ public class InclDBUtil {
                 JSONObject jo = ja.getJSONObject(i);
 
                 ClassVO vo = new ClassVO();
-                vo.setClassId(jo.getString("class_id"));
+                vo.setClass_id(jo.getString("class_id"));
                 vo.setTitle(jo.getString("title"));
-                vo.setContent(jo.getString("content"));
-                vo.setStartTime(jo.getString("start_time"));
-                vo.setEndTime(jo.getString("end_time"));
-                vo.setPlace(jo.getString("place"));
                 vo.setAddr(jo.getString("addr"));
+                vo.setPlace(jo.getString("place"));
                 vo.setPrice(jo.getString("price"));
-                vo.setDate(jo.getString("date"));
+                vo.setContent(jo.getString("content"));
+                vo.setLesson_date(jo.getString("lesson_date"));
+                vo.setStart_time(jo.getString("start_time"));
+                vo.setEnd_time(jo.getString("end_time"));
+                vo.setMin_person(jo.getString("min_person"));
+                vo.setMax_person(jo.getString("max_person"));
+                vo.setItems(jo.getString("items"));
+                vo.setBank(jo.getString("bank"));
+                vo.setAccount(jo.getString("account"));
 
                 list.add(vo);
             }
@@ -60,7 +65,7 @@ public class InclDBUtil {
 
     public static void insertClass(Map map) {
         try {
-            new InclDbConnection("INSERT").execute(map).get();
+            String s = new InclDbConnection("INSERT").execute(map).get();
         } catch (Exception e) {
             Log.d("INCL_DEBUG", "selectListAll Exception");
             e.printStackTrace();
