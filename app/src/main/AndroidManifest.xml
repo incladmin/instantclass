@@ -44,6 +44,14 @@
             android:name=".activity.SettingsActivity"
             android:label="@string/title_activity_setting" >
         </activity>
+        <activity
+            android:name=".activity.PwdChgActivity"
+            android:label="@string/title_activity_pwd_chg" >
+        </activity>
+        <activity
+            android:name=".activity.DropUserActivity"
+            android:label="@string/title_activity_drop_user" >
+        </activity>
     </application>
 
 </manifest>

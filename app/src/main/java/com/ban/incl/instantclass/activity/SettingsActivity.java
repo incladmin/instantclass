@@ -50,15 +50,18 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.pref_settings);
+        //setContentView(R.xml.settings_layout);
         //getActionBar().setTitle("설정");
 
         Preference pAppdName = (Preference)findPreference("pwdChg");
         Preference pAppPolicy = (Preference)findPreference("keyPolService");
         Preference pAppPolicyGps = (Preference)findPreference("keyPolGps");
+        Preference pAppDropUser = (Preference)findPreference("keyOut");
 
         pAppdName.setOnPreferenceClickListener(this);
         pAppPolicy.setOnPreferenceClickListener(this);
         pAppPolicyGps.setOnPreferenceClickListener(this);
+        pAppDropUser.setOnPreferenceClickListener(this);
     }
 
     @Override
@@ -67,7 +70,7 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         // 도움말 선택시
         if(preference.getKey().equals("pwdChg"))
         {
-            Intent intent = new Intent(this, LoginActivity.class);
+            Intent intent = new Intent(this, PwdChgActivity.class);
             startActivity(intent);
         }
         else if(preference.getKey().equals("keyPolService"))
@@ -79,7 +82,12 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         {
             Intent addClassIntent = new Intent(this, AddClassActivity.class);
             startActivity(addClassIntent);
+
+        } else if(preference.getKey().equals("keyOut")){
+            Intent intent = new Intent(this, DropUserActivity.class);
+            startActivity(intent);
         }
+
         return false;
     }
 }
