@@ -15,7 +15,8 @@ import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.activity.MainActivity;
-import com.ban.incl.instantclass.util.phpDown;
+import com.ban.incl.instantclass.util.InclDBUtil;
+import com.ban.incl.instantclass.util.InclUtil;
 import com.ban.incl.instantclass.vo.ClassVO;
 
 import java.util.ArrayList;
@@ -82,35 +83,24 @@ public class AddClassDetailFragment extends Fragment {
                     ClassVO vo = new ClassVO();
                     EditText content    = (EditText)getView().findViewById(R.id.edtContent);
                     EditText items      = (EditText)getView().findViewById(R.id.edtItems);
-//                    EditText maxPerson = (EditText)getView().findViewById(R.id.edtPhoto);
                     EditText bank = (EditText)getView().findViewById(R.id.edtBank);
                     EditText account = (EditText)getView().findViewById(R.id.edtAccount);
 
-//                    vo.setPlace(place.getText().toString());
                     vo.setTitle(title);
-                    vo.setDate(lessenDate);
-                    vo.setStartTime(startTime);
-                    vo.setEndTime(endTime);
+                    vo.setLesson_date(lessenDate);
+                    vo.setStart_time(startTime);
+                    vo.setEnd_time(endTime);
+
                     vo.setPlace(place);
-                    vo.setMaxPerson(maxPerson);
-                    vo.setMinPerson(minPerson);
+                    vo.setMax_person(maxPerson);
+                    vo.setMin_person(minPerson);
 
                     vo.setContent(content.getText().toString());
                     vo.setItems(items.getText().toString());
                     vo.setBank(bank.getText().toString());
                     vo.setAccount(account.getText().toString());
 
-                    phpDown task = new phpDown();
-
-                    try {
-                        task.setMode("INSERT");
-                        task.setInsertItem(vo);
-
-                        task.execute("insertClass.php");
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                    InclDBUtil.insertClass(InclUtil.ConvertObjtoMap(vo));
 
                     Toast.makeText(getActivity(), "Insert", Toast.LENGTH_SHORT).show();
                     Intent mainIntend = new Intent(getActivity(), MainActivity.class);
