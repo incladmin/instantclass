@@ -13,8 +13,8 @@ public class ClassVO {
     private String lesson_date;
     private String start_time;
     private String end_time;
-    private String min_people;
-    private String max_people;
+    private String min_person;
+    private String max_person;
     private String items;
     private String bank;
     private String account;
@@ -91,20 +91,20 @@ public class ClassVO {
         this.end_time = end_time;
     }
 
-    public String getMin_people() {
-        return min_people;
+    public String getMin_person() {
+        return min_person;
     }
 
-    public void setMin_people(String min_people) {
-        this.min_people = min_people;
+    public void setMin_person(String min_person) {
+        this.min_person = min_person;
     }
 
-    public String getMax_people() {
-        return max_people;
+    public String getMax_person() {
+        return max_person;
     }
 
-    public void setMax_people(String max_people) {
-        this.max_people = max_people;
+    public void setMax_person(String max_person) {
+        this.max_person = max_person;
     }
 
     public String getItems() {
