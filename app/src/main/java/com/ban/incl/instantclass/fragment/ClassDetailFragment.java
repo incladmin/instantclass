@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
-import com.ban.incl.instantclass.util.phpDown;
 import com.ban.incl.instantclass.vo.ClassVO;
 
 import org.json.JSONArray;

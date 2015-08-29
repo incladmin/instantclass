@@ -60,9 +60,9 @@ public class SingleAdapter extends BaseAdapter {
         TextView txt_list_price      = (TextView) view.findViewById(R.id.txt_list_price);
 
         txt_list_title.setText(list.get(position).getTitle());
-        txt_list_date.setText(list.get(position).getDate());
+        txt_list_date.setText(list.get(position).getLesson_date());
         txt_list_place.setText(list.get(position).getPlace());
-        String time = list.get(position).getStartTime()+"~"+list.get(position).getEndTime();
+        String time = list.get(position).getStart_time()+"~"+list.get(position).getEnd_time();
         txt_list_time.setText(time);
 //        String people = list.get(position).getCurr_people()+"/"+list.get(position).getMax_people();
 //        txt_list_people.setText(people);

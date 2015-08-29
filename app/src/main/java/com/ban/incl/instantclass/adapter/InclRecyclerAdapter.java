@@ -79,9 +79,9 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
 
 //        ImageView imageView = holder.imageViewIcon;
 
-        txt_card_date.setText(  listClass.get(listPosition).getDate());
+        txt_card_date.setText(  listClass.get(listPosition).getLesson_date());
         txt_card_place.setText( listClass.get(listPosition).getPlace());
-        String time = listClass.get(listPosition).getStartTime() + "~" + listClass.get(listPosition).getEndTime();
+        String time = listClass.get(listPosition).getStart_time() + "~" + listClass.get(listPosition).getEnd_time();
         txt_card_time.setText(time);
 //        String people = listClass.get(listPosition).getCurr_people() + "/" + listClass.get(listPosition).getMax_people();
 //        txt_card_people.setText(people);
