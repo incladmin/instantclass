@@ -60,24 +60,11 @@
                         android:text="수업날짜"
                         android:id="@+id/txt_lesson_date" />
 
-                    <DatePicker
+                    <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/lessonDatePicker"
-                        android:calendarViewShown="false"
-                        android:datePickerMode="spinner"
-                        android:scaleX="0.5"
-                        android:scaleY="0.5"
-                        />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/edtLessonDate"
-                        android:layout_above="@+id/txt_lesson_date"
-                        android:layout_alignLeft="@+id/edtTitle"
-                        android:layout_alignStart="@+id/edtTitle"
-                        android:width="200dp" />
+                        android:id="@+id/btn_lessonDate"
+                        android:layout_column="1" />
 
 
                 </TableRow>
@@ -92,20 +79,12 @@
                         android:text="수업시작시간"
                         android:id="@+id/txt_start_time" />
 
-                    <TimePicker
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/startTimePicker"
-                        android:timePickerMode="spinner" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/edtStartTime"
-                        android:layout_above="@+id/txt_start_time"
-                        android:layout_alignLeft="@+id/edtLessonDate"
-                        android:layout_alignStart="@+id/edtLessonDate"
-                        android:width="200dp" />
+                        android:text="수업종료시간"
+                        android:id="@+id/txt_end_time"
+                        android:layout_column="1" />
 
                 </TableRow>
 
@@ -113,26 +92,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
 
-                    <TextView
+                    <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="수업종료시간"
-                        android:id="@+id/txt_end_time" />
+                        android:id="@+id/btn_start_time"
+                        android:layout_column="0" />
 
-                    <TimePicker
+                    <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/endTimePicker"
-                        android:timePickerMode="spinner" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/edtEndTime"
-                        android:layout_alignBottom="@+id/txt_start_time"
-                        android:layout_alignLeft="@+id/edtStartTime"
-                        android:layout_alignStart="@+id/edtStartTime"
-                        android:width="200dp" />
+                        android:id="@+id/btn_end_time"
+                        android:layout_column="1" />
 
                 </TableRow>
 
