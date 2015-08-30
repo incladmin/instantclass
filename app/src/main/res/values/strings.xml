@@ -30,4 +30,7 @@
     <string name="drawer_close">Menu closed</string>
     <string name="title_activity_add_class">AddClassActivity</string>
     <string name="title_activity_detail_class">DetailClassActivity</string>
+
+    <string name="title_activity_pwd_chg">title_activity_pwd_chg</string>
+    <string name="title_activity_drop_user">title_activity_drop_user</string>
 </resources>
