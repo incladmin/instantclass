@@ -36,6 +36,8 @@ public class InclDbConnection extends AsyncTask<Object, Integer, String>{
                 break;
             case "SELECTUSERINFO" :
                 sFileName = "getUserData.php";
+            case "REGIST" :
+                sFileName = "inclRegist.php";
         }
     }
 

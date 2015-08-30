@@ -5,7 +5,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.util.InclDBUtil;
@@ -70,12 +73,24 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
 //        btnAddClass.setOnClickListener(this);
 //        btnDeleteAll.setOnClickListener(this);
 
+        ImageView btn_incl_regist = (ImageView)view.findViewById(R.id.btn_incl_regist);
+
+        btn_incl_regist.setOnClickListener(this);
+
         return view;
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.btn_incl_regist:
+                Toast.makeText(getActivity(), "REGIST", Toast.LENGTH_SHORT).show();
+
+                Map map = new HashMap();
+                map.put("class_id", getArguments().getCharSequence("CLASS_ID"));
+                String strRetun = InclDBUtil.saveInclRegist(map);
+
+                break;
 //            case R.id.btn_update_class:
 //                ClassVO vo = new ClassVO();
 //

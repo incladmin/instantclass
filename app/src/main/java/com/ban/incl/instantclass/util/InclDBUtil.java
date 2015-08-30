@@ -117,4 +117,17 @@ public class InclDBUtil {
 
         return vo;
     }
+
+    public static String saveInclRegist(Map map) {
+        String s = "";
+        try {
+            s = new InclDbConnection("REGIST").execute(map).get();
+
+        } catch (Exception e) {
+            Log.d("INCL_DEBUG", "selectClassDetail Exception");
+            e.printStackTrace();
+        }
+
+        return s;
+    }
 }
