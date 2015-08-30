@@ -29,6 +29,7 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
         TextView txt_card_price;
         TextView txt_card_writer;
         TextView txt_card_addr;
+        TextView txt_card_class_id;
 
 //        ImageView imageViewIcon;
 
@@ -42,6 +43,7 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
             this.txt_card_price     = (TextView) itemView.findViewById(R.id.txt_card_price);
             this.txt_card_writer    = (TextView) itemView.findViewById(R.id.txt_lesson_date);
             this.txt_card_addr      = (TextView) itemView.findViewById(R.id.txt_card_addr);
+            this.txt_card_class_id  = (TextView) itemView.findViewById(R.id.txt_card_class_id);
 
 //            this.imageViewIcon = (ImageView) itemView.findViewById(R.id.txtStartTime);
             itemView.setOnClickListener(this);
@@ -76,6 +78,7 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
         TextView txt_card_price     = holder.txt_card_price;
         TextView txt_card_writer    = holder.txt_card_writer;
         TextView txt_card_addr      = holder.txt_card_addr;
+        TextView txt_card_class_id  = holder.txt_card_class_id;
 
 //        ImageView imageView = holder.imageViewIcon;
 
@@ -88,6 +91,7 @@ public class InclRecyclerAdapter extends RecyclerView.Adapter<InclRecyclerAdapte
         txt_card_price.setText( listClass.get(listPosition).getPrice());
 //        txt_card_writer.setText(listClass.get(listPosition).get());
         txt_card_addr.setText(  listClass.get(listPosition).getAddr());
+        txt_card_class_id.setText(  listClass.get(listPosition).getClass_id());
 
 //        imageView.setImageResource(listClass.get(listPosition).getImage());
     }

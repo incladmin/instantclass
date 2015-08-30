@@ -33,7 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="real title"
-                    android:id="@+id/textView17"
+                    android:id="@+id/txt_detail_title"
                     android:layout_alignParentBottom="true"
                     android:textColor="#FFF"
                     android:singleLine="false"
@@ -58,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2015.08.05"
-                    android:id="@+id/textView19"
+                    android:id="@+id/txt_detail_lesson_date"
                     android:layout_toRightOf="@+id/textView18"
                     android:textColor="#000"
                     android:layout_marginLeft="10dp" />
@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="08:00 ~ 17:00"
-                    android:id="@+id/textView24"
+                    android:id="@+id/txt_detail_lesson_time"
                     android:layout_toRightOf="@+id/textView23"
                     android:textColor="#000"
                     android:layout_marginLeft="10dp" />
@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="오리역"
-                    android:id="@+id/textView26"
+                    android:id="@+id/txt_detail_place"
                     android:layout_toRightOf="@+id/textView25"
                     android:textColor="#000"
                     android:layout_marginLeft="10dp" />
@@ -127,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1명"
-                    android:id="@+id/textView28"
+                    android:id="@+id/txt_detail_max_person"
                     android:layout_toRightOf="@+id/textView27"
                     android:textColor="#000"
                     android:layout_marginLeft="10dp" />
@@ -151,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20,000원"
-                    android:id="@+id/textView30"
+                    android:id="@+id/txt_detail_price"
                     android:layout_toRightOf="@+id/textView29"
                     android:textColor="#000"
                     android:layout_marginLeft="10dp" />
@@ -248,14 +248,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="나른한 오후, 잠들어 있는 잡동사니를 꺼내 재미있는 장난감 만들어보아요!"
-                    android:id="@+id/textView31" />
+                    android:id="@+id/txt_detail_content" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="더 보기"
                     android:id="@+id/textView32"
-                    android:layout_below="@+id/textView31"
+                    android:layout_below="@+id/txt_detail_content"
                     android:layout_centerHorizontal="true"
                     android:singleLine="false" />
             </RelativeLayout>

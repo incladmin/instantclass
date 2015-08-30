@@ -48,7 +48,7 @@ public class SingleAdapter extends BaseAdapter {
             view = convertView;
         }
 
-        view.setTag(list.get(position));
+        view.setTag(list.get(position).getClass_id());
 
         TextView txt_list_title     = (TextView) view.findViewById(R.id.txt_list_title);
         TextView txt_list_date      = (TextView) view.findViewById(R.id.txt_list_date);

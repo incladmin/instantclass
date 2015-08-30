@@ -29,7 +29,7 @@ public class InclDbConnection extends AsyncTask<Object, Integer, String>{
                 sFileName = "getData.php";
                 break;
             case "DETAIL" :
-                sFileName = "getData.php";
+                sFileName = "getDataDetail.php";
                 break;
             case "INSERT" :
                 sFileName = "insertClass.php";

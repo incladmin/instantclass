@@ -97,4 +97,24 @@ public class InclDBUtil {
 
         return userVO;
     }
+
+    public static ClassVO selectClassDetail(Map map) {
+        List list = new ArrayList();
+        ClassVO vo = new ClassVO();
+
+        try {
+            String s = new InclDbConnection("DETAIL").execute(map).get();
+            list = ConvertStrToList(s);
+
+        } catch (Exception e) {
+            Log.d("INCL_DEBUG", "selectClassDetail Exception");
+            e.printStackTrace();
+        }
+
+        if(!list.isEmpty()) {
+            vo = (ClassVO)list.get(0);
+        }
+
+        return vo;
+    }
 }

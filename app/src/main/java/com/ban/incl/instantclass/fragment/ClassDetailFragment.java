@@ -5,21 +5,23 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.ban.incl.instantclass.R;
+import com.ban.incl.instantclass.util.InclDBUtil;
 import com.ban.incl.instantclass.vo.ClassVO;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ClassDetailFragment extends Fragment implements View.OnClickListener {
 
-    public static ClassDetailFragment newInstance() {
+    private ClassVO mVo = new ClassVO();
+
+    public static ClassDetailFragment newInstance(CharSequence sClassId) {
         ClassDetailFragment fragment = new ClassDetailFragment();
         Bundle args = new Bundle();
+        args.putCharSequence("CLASS_ID", sClassId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -31,6 +33,13 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        CharSequence mClassId = getArguments().getCharSequence("CLASS_ID");
+
+        Map map = new HashMap();
+        map.put("class_id", mClassId);
+
+        mVo = InclDBUtil.selectClassDetail(map);
     }
 
     @Override
@@ -39,46 +48,21 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_class_detail, container, false);
 
-        /*
-        phpDown task = new phpDown();
+        TextView title      = (TextView)view.findViewById(R.id.txt_detail_title);
+        TextView date       = (TextView)view.findViewById(R.id.txt_detail_lesson_date);
+        TextView time       = (TextView)view.findViewById(R.id.txt_detail_lesson_time);
+        TextView place      = (TextView)view.findViewById(R.id.txt_detail_place);
+        TextView person     = (TextView)view.findViewById(R.id.txt_detail_max_person);
+        TextView price      = (TextView)view.findViewById(R.id.txt_detail_price);
+        TextView content      = (TextView)view.findViewById(R.id.txt_detail_content);
 
-        try {
-            ClassVO vo = new ClassVO();
-            vo.setClassId("2");
-
-            task.setMode("DETAIL");
-            task.setInsertItem(vo);
-
-            String sVo = task.execute("getDataDetail.php").get();
-
-            try{
-                JSONObject root = new JSONObject(sVo);
-                JSONArray ja = root.getJSONArray("results");
-                JSONObject jo = ja.getJSONObject(0);
-
-                EditText title      = (EditText)view.findViewById(R.id.edtUpTitle);
-                EditText date       = (EditText)view.findViewById(R.id.edtUpDate);
-                EditText startTime  = (EditText)view.findViewById(R.id.edtUpStartTime);
-                EditText endTime    = (EditText)view.findViewById(R.id.edtUpEndTime);
-                EditText content    = (EditText)view.findViewById(R.id.edtUpContent);
-                EditText place      = (EditText)view.findViewById(R.id.edtUpPlace);
-
-                title.setText(jo.getString("title"));
-                date.setText(jo.getString("date"));
-                startTime.setText(jo.getString("startTime"));
-                endTime.setText(jo.getString("endTime"));
-                content.setText(jo.getString("content"));
-                place.setText(jo.getString("place"));
-
-            }catch(JSONException e){
-                e.printStackTrace();
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-*/
+        title.setText(mVo.getTitle());
+        date.setText(mVo.getLesson_date());
+        time.setText(mVo.getStart_time() + " ~ " + mVo.getEnd_time());
+        place.setText(mVo.getPlace());
+        person.setText(mVo.getMax_person());
+        price.setText(mVo.getPrice());
+        content.setText(mVo.getContent());
 
 //        Button btnAddClass = (Button)view.findViewById(R.id.btn_update_class);
 //        Button btnDeleteAll = (Button)view.findViewById(R.id.btn_del_class);

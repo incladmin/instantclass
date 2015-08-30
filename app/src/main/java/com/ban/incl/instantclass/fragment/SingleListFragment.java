@@ -56,14 +56,14 @@ public class SingleListFragment extends Fragment implements AdapterView.OnItemCl
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        ClassVO vo = (ClassVO)view.getTag();
+        String mClassId = (String)view.getTag();
 
-        Toast.makeText(getActivity(), vo.getTitle() + ":: " + position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), mClassId + " >> " + position, Toast.LENGTH_SHORT).show();
 
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, ClassDetailFragment.newInstance())
+                .replace(R.id.container, ClassDetailFragment.newInstance(mClassId))
                 .addToBackStack(null)
                 .commit();
     }

@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
@@ -87,15 +88,19 @@ public class InclRecyclerFragment extends Fragment {
         public void onItemClick(View view, int position) {
             Log.d("INCL_DEBUG", "onItemClick");
 
+            TextView txt_card_class_id = (TextView)view.findViewById(R.id.txt_card_class_id);
+            CharSequence mClassId = txt_card_class_id.getText();
+
+            Log.d("INCL_DEBUG", "mClassId >> " + mClassId);
 //            adapter.notifyItemRemoved(position);
-            Toast.makeText(getActivity(), String.valueOf(position), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), mClassId, Toast.LENGTH_SHORT).show();
 
 //            Intent intent = new Intent(getActivity(), DetailClassActivity.class);
 //            startActivity(intent);
 
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             fragmentManager.beginTransaction()
-                            .replace(R.id.container, ClassDetailFragment.newInstance())
+                            .replace(R.id.container, ClassDetailFragment.newInstance(mClassId))
                             .addToBackStack(null)
                             .commit();
 
