@@ -34,6 +34,7 @@ import com.ban.incl.instantclass.activity.AddClassActivity;
 import com.ban.incl.instantclass.activity.LoginActivity;
 import com.ban.incl.instantclass.activity.SettingsActivity;
 import com.ban.incl.instantclass.util.InclDbConnection;
+import com.ban.incl.instantclass.util.ListType;
 
 import java.util.HashMap;
 
@@ -110,13 +111,13 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
             switch (v.getId()) {
                 case R.id.iv_mylist:
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, SingleListFragment.newInstance())
+                            .replace(R.id.container, SingleListFragment.newInstance(ListType.REGIST_LIST))
                             .addToBackStack(null)
                             .commit();
                     break;
                 case R.id.iv_interest:
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, SingleListFragment.newInstance())
+                            .replace(R.id.container, SingleListFragment.newInstance(ListType.INTEREST_LIST))
                             .addToBackStack(null)
                             .commit();
                     break;

@@ -15,11 +15,23 @@ import java.util.Map;
 
 public class InclDBUtil {
 
+    private static final String SELECT = "getData.php";
+    private static final String DETAIL = "getDataDetail.php";
+    private static final String INSERT = "insertClass.php";
+    private static final String SELECTUSERINFO = "getUserData.php";
+    private static final String REGIST = "inclRegist.php";
+
+    private static final String REGIST_LIST = "getRegistList.php";
+    private static final String INTEREST_LIST = "getInterestList.php";
+    private static final String ORDER_DISTANCE = "getData.php";
+    private static final String ORDER_DATE = "getData.php";
+    private static final String ORDER_INTEREST = "getData.php";
+
     public static List<ClassVO> selectAllList() {
         List<ClassVO> list = new ArrayList<>();
         try {
-            String s = new InclDbConnection("SELECT").execute(new HashMap()).get();
-            list = ConvertStrToList(s);
+            String s = new InclDbConnection(SELECT).execute(new HashMap()).get();
+            list = InclUtil.ConvertStrToList(s);
         } catch (Exception e) {
             Log.d("INCL_DEBUG", "selectListAll Exception");
             e.printStackTrace();
@@ -28,44 +40,45 @@ public class InclDBUtil {
         return list;
     }
 
-    public static List<ClassVO> ConvertStrToList(String str) {
+    public static List<ClassVO> selectList(ListType type) {
         List<ClassVO> list = new ArrayList<>();
-        try{
-            JSONObject root = new JSONObject(str);
-            JSONArray ja = root.getJSONArray("results");
-
-            for(int i=0; i<ja.length(); i++){
-                JSONObject jo = ja.getJSONObject(i);
-
-                ClassVO vo = new ClassVO();
-                vo.setClass_id(jo.getString("class_id"));
-                vo.setTitle(jo.getString("title"));
-                vo.setAddr(jo.getString("addr"));
-                vo.setPlace(jo.getString("place"));
-                vo.setPrice(jo.getString("price"));
-                vo.setContent(jo.getString("content"));
-                vo.setLesson_date(jo.getString("lesson_date"));
-                vo.setStart_time(jo.getString("start_time"));
-                vo.setEnd_time(jo.getString("end_time"));
-                vo.setMin_person(jo.getString("min_person"));
-                vo.setMax_person(jo.getString("max_person"));
-                vo.setItems(jo.getString("items"));
-                vo.setBank(jo.getString("bank"));
-                vo.setAccount(jo.getString("account"));
-
-                list.add(vo);
+        try {
+            String s = "";
+            Map paramMap = new HashMap();
+            paramMap.put("user_id", "incladmin");
+            switch (type) {
+                case REGIST_LIST:
+                    s = new InclDbConnection(REGIST_LIST).execute(paramMap).get();
+                    list = InclUtil.ConvertStrToList(s);
+                    break;
+                case INTEREST_LIST:
+                    s = new InclDbConnection(INTEREST_LIST).execute(paramMap).get();
+                    list = InclUtil.ConvertStrToList(s);
+                    break;
+                case ORDER_DISTANCE:
+                    s = new InclDbConnection(ORDER_DISTANCE).execute(paramMap).get();
+                    list = InclUtil.ConvertStrToList(s);
+                    break;
+                case ORDER_DATE:
+                    s = new InclDbConnection(ORDER_DATE).execute(paramMap).get();
+                    list = InclUtil.ConvertStrToList(s);
+                    break;
+                case ORDER_INTEREST:
+                    s = new InclDbConnection(ORDER_INTEREST).execute(paramMap).get();
+                    list = InclUtil.ConvertStrToList(s);
+                    break;
             }
-        }catch(Exception e){
-            Log.d("INCL_DEBUG", "ConvertStrToList Exception");
+        } catch (Exception e) {
+            Log.d("INCL_DEBUG", "selectList type = " + type);
+            Log.d("INCL_DEBUG", "selectList Exception");
             e.printStackTrace();
         }
-
         return list;
     }
 
     public static void insertClass(Map map) {
         try {
-            String s = new InclDbConnection("INSERT").execute(map).get();
+            String s = new InclDbConnection(INSERT).execute(map).get();
         } catch (Exception e) {
             Log.d("INCL_DEBUG", "selectListAll Exception");
             e.printStackTrace();
@@ -77,7 +90,7 @@ public class InclDBUtil {
         UserVO userVO = new UserVO();
 
         try{
-            String s = new InclDbConnection("SELECTUSERINFO").execute(map).get();
+            String s = new InclDbConnection(SELECTUSERINFO).execute(map).get();
             Log.d("### ohGamja ###",s);
 
             if(s!=null){
@@ -103,8 +116,8 @@ public class InclDBUtil {
         ClassVO vo = new ClassVO();
 
         try {
-            String s = new InclDbConnection("DETAIL").execute(map).get();
-            list = ConvertStrToList(s);
+            String s = new InclDbConnection(DETAIL).execute(map).get();
+            list = InclUtil.ConvertStrToList(s);
 
         } catch (Exception e) {
             Log.d("INCL_DEBUG", "selectClassDetail Exception");
@@ -121,7 +134,7 @@ public class InclDBUtil {
     public static String saveInclRegist(Map map) {
         String s = "";
         try {
-            s = new InclDbConnection("REGIST").execute(map).get();
+            s = new InclDbConnection(REGIST).execute(map).get();
 
         } catch (Exception e) {
             Log.d("INCL_DEBUG", "selectClassDetail Exception");

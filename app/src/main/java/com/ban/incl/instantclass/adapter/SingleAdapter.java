@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.ban.incl.instantclass.R;
 import com.ban.incl.instantclass.util.InclDBUtil;
+import com.ban.incl.instantclass.util.ListType;
 import com.ban.incl.instantclass.vo.ClassVO;
 
 import java.util.ArrayList;
@@ -23,9 +24,9 @@ public class SingleAdapter extends BaseAdapter {
     String returnVal;
 
     //생성자를 만든다.
-    public SingleAdapter(Context context) {
+    public SingleAdapter(Context context, ListType type) {
 
-        list = InclDBUtil.selectAllList();
+        list = InclDBUtil.selectList(type);
 
         inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
     }

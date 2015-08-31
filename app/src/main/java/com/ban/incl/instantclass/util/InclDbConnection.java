@@ -17,28 +17,11 @@ import java.util.Map;
  *
  */
 public class InclDbConnection extends AsyncTask<Object, Integer, String>{
-
     private final String INCL_DB_URL = "http://incladmin.cafe24.com/";
-
     private String sFileName = "";
 
-    public InclDbConnection(String mode) {
-        //TODO : InclDbConnection init
-        switch (mode.toUpperCase()) {
-            case "SELECT" :
-                sFileName = "getData.php";
-                break;
-            case "DETAIL" :
-                sFileName = "getDataDetail.php";
-                break;
-            case "INSERT" :
-                sFileName = "insertClass.php";
-                break;
-            case "SELECTUSERINFO" :
-                sFileName = "getUserData.php";
-            case "REGIST" :
-                sFileName = "inclRegist.php";
-        }
+    public InclDbConnection(String filename) {
+        sFileName = filename;
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.ban.incl.instantclass.fragment.InclRecyclerFragment;
 import com.ban.incl.instantclass.fragment.SingleListFragment;
+import com.ban.incl.instantclass.util.ListType;
 
 /**
  * Created by clive on 25-May-14.
@@ -37,7 +38,19 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         if("REGION".equals(mViewPagerContentType)) {
             return InclRecyclerFragment.newInstance();
         } else {
-            return SingleListFragment.newInstance();
+            SingleListFragment sf = null;
+            switch (position) {
+                case 0:
+                    sf = SingleListFragment.newInstance(ListType.ORDER_DISTANCE);
+                    break;
+                case 1:
+                    sf = SingleListFragment.newInstance(ListType.ORDER_DATE);
+                    break;
+                case 2:
+                    sf = SingleListFragment.newInstance(ListType.ORDER_INTEREST);
+                    break;
+            }
+            return sf;
         }
 //        return ArrayListFragment.createNewFragmentToDisplay(position);
     }
