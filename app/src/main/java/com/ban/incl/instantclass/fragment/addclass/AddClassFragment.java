@@ -10,11 +10,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.NumberPicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.ban.incl.instantclass.R;
 
@@ -35,7 +40,7 @@ public class AddClassFragment extends Fragment {
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            int dayOfWeek=0;
+            int dayOfWeek = 0;
             dateAndTime.set(Calendar.YEAR, year);
             dateAndTime.set(Calendar.MONTH, monthOfYear);
             dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -46,9 +51,9 @@ public class AddClassFragment extends Fragment {
         }
     };
 
-    TimePickerDialog.OnTimeSetListener time = new TimePickerDialog.OnTimeSetListener(){
+    TimePickerDialog.OnTimeSetListener time = new TimePickerDialog.OnTimeSetListener() {
         @Override
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute){
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
             dateAndTime.set(Calendar.MINUTE, minute);
 
@@ -70,12 +75,23 @@ public class AddClassFragment extends Fragment {
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_class, container, false);
+//        setContentView(R.layout.main);
 
+        NumberPicker minPerson = (NumberPicker)view.findViewById(R.id.num_min);
+        minPerson.setMinValue(1);
+        minPerson.setMaxValue(100);
+
+        NumberPicker maxPerson = (NumberPicker)view.findViewById(R.id.num_max);
+        maxPerson.setMinValue(1);
+        maxPerson.setMaxValue(100);
+
+
+
+        //((NumberPicker) view).setWrapSelectorWheel(false);
         view.findViewById(R.id.btn_lessonDate).setOnClickListener(addClassListener);
         view.findViewById(R.id.btn_add_class).setOnClickListener(addClassListener);
         view.findViewById(R.id.btn_start_time).setOnClickListener(addClassListener);
@@ -91,9 +107,9 @@ public class AddClassFragment extends Fragment {
 
     }
 
-    Button.OnClickListener addClassListener = new View.OnClickListener(){
-        public void  onClick(View v){
-            FragmentManager addClassFragementManager  = getActivity().getSupportFragmentManager();
+    Button.OnClickListener addClassListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            FragmentManager addClassFragementManager = getActivity().getSupportFragmentManager();
             switch (v.getId()) {
                 case R.id.btn_lessonDate:
                     new DatePickerDialog(getActivity(), date,
@@ -126,24 +142,24 @@ public class AddClassFragment extends Fragment {
 
                     break;
 
-
                 case R.id.btn_add_class:
+
                     List addClassList = new ArrayList();
                     EditText title = (EditText) getView().findViewById(R.id.edtTitle);
                     Button lessonDate = (Button) getView().findViewById(R.id.btn_lessonDate);
                     Button startTime = (Button) getView().findViewById(R.id.btn_start_time);
                     Button endTime = (Button) getView().findViewById(R.id.btn_end_time);
                     EditText place = (EditText) getView().findViewById(R.id.edtPlace);
-                    EditText maxPerson = (EditText) getView().findViewById(R.id.edtMaxPerson);
-                    EditText minPerson = (EditText) getView().findViewById(R.id.edtMinPerson);
-                    ;
+                    NumberPicker minPerson = (NumberPicker) getView().findViewById(R.id.num_min);
+                    NumberPicker maxPerson = (NumberPicker) getView().findViewById(R.id.num_max);
+
                     addClassList.add(0, title.getText().toString());
                     addClassList.add(1, lessonDate.getText().toString());
                     addClassList.add(2, startTime.getText().toString());
                     addClassList.add(3, endTime.getText().toString());
                     addClassList.add(4, place.getText().toString());
-                    addClassList.add(5, maxPerson.getText().toString());
-                    addClassList.add(6, minPerson.getText().toString());
+                    addClassList.add(5, String.valueOf(maxPerson.getValue()));
+                    addClassList.add(6, String.valueOf(minPerson.getValue()));
 
 //                    Log.d("add class!!!!!!!!!!", addClassList.get(0).toString());
 
@@ -158,12 +174,14 @@ public class AddClassFragment extends Fragment {
 
     };
 
-    private void updateDateLabel(int year, int monthOfYear, int dayOfMonth){
+    private void updateDateLabel(int year, int monthOfYear, int dayOfMonth) {
 
-       dateLabel.setText(year + " 년" + monthOfYear + " 월" + dayOfMonth + " 일" );
+        dateLabel.setText(year + " 년" + monthOfYear + " 월" + dayOfMonth + " 일");
     }
 
-    private void  updateTimeLabel(int hourOfDay, int minute){
-        timeLabel.setText(hourOfDay+ " 시 " + minute +" 분" );
+    private void updateTimeLabel(int hourOfDay, int minute) {
+        timeLabel.setText(hourOfDay + " 시 " + minute + " 분");
     }
+
+
 }
