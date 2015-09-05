@@ -18,6 +18,8 @@ public class ClassVO {
     private String items;
     private String bank;
     private String account;
+    private String regist_yn;
+    private String interest_yn;
 
     public String getClass_id() {
         return class_id;
@@ -129,5 +131,21 @@ public class ClassVO {
 
     public void setAccount(String account) {
         this.account = account;
+    }
+
+    public String getRegist_yn() {
+        return regist_yn;
+    }
+
+    public void setRegist_yn(String regist_yn) {
+        this.regist_yn = regist_yn;
+    }
+
+    public String getInterest_yn() {
+        return interest_yn;
+    }
+
+    public void setInterest_yn(String interest_yn) {
+        this.interest_yn = interest_yn;
     }
 }

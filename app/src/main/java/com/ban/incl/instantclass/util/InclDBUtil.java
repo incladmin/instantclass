@@ -19,7 +19,8 @@ public class InclDBUtil {
     private static final String DETAIL = "getDataDetail.php";
     private static final String INSERT = "insertClass.php";
     private static final String SELECTUSERINFO = "getUserData.php";
-    private static final String REGIST = "inclRegist.php";
+    private static final String REGIST = "saveRegist.php";
+    private static final String INTEREST = "saveInterest.php";
 
     private static final String REGIST_LIST = "getRegistList.php";
     private static final String INTEREST_LIST = "getInterestList.php";
@@ -45,6 +46,7 @@ public class InclDBUtil {
         try {
             String s = "";
             Map paramMap = new HashMap();
+            //TODO : session
             paramMap.put("user_id", "incladmin");
             switch (type) {
                 case REGIST_LIST:
@@ -135,6 +137,19 @@ public class InclDBUtil {
         String s = "";
         try {
             s = new InclDbConnection(REGIST).execute(map).get();
+
+        } catch (Exception e) {
+            Log.d("INCL_DEBUG", "selectClassDetail Exception");
+            e.printStackTrace();
+        }
+
+        return s;
+    }
+
+    public static String saveInclInterest(Map map) {
+        String s = "";
+        try {
+            s = new InclDbConnection(INTEREST).execute(map).get();
 
         } catch (Exception e) {
             Log.d("INCL_DEBUG", "selectClassDetail Exception");

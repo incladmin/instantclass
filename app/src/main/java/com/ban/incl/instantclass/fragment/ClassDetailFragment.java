@@ -40,7 +40,10 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
         CharSequence mClassId = getArguments().getCharSequence("CLASS_ID");
 
         Map map = new HashMap();
+
         map.put("class_id", mClassId);
+        //TODO : seesion
+        map.put("user_id", "incladmin");
 
         mVo = InclDBUtil.selectClassDetail(map);
     }
@@ -57,7 +60,12 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
         TextView place      = (TextView)view.findViewById(R.id.txt_detail_place);
         TextView person     = (TextView)view.findViewById(R.id.txt_detail_max_person);
         TextView price      = (TextView)view.findViewById(R.id.txt_detail_price);
-        TextView content      = (TextView)view.findViewById(R.id.txt_detail_content);
+        TextView content    = (TextView)view.findViewById(R.id.txt_detail_content);
+        TextView txt_regist_incl    = (TextView)view.findViewById(R.id.txt_regist_incl);
+
+        ImageView iv_detail_interest = (ImageView)view.findViewById(R.id.iv_detail_interest);
+        ImageView btn_incl_regist = (ImageView)view.findViewById(R.id.btn_incl_regist);
+        RelativeLayout btn_incl_interest = (RelativeLayout)view.findViewById(R.id.btn_incl_interest);
 
         title.setText(mVo.getTitle());
         date.setText(mVo.getLesson_date());
@@ -67,56 +75,81 @@ public class ClassDetailFragment extends Fragment implements View.OnClickListene
         price.setText(mVo.getPrice());
         content.setText(mVo.getContent());
 
-//        Button btnAddClass = (Button)view.findViewById(R.id.btn_update_class);
-//        Button btnDeleteAll = (Button)view.findViewById(R.id.btn_del_class);
-//
-//        btnAddClass.setOnClickListener(this);
-//        btnDeleteAll.setOnClickListener(this);
+        if("Y".equals(mVo.getRegist_yn())) {
+            btn_incl_regist.setTag("Y");
+            btn_incl_regist.setImageResource(R.color.disabled);
+            txt_regist_incl.setText("수업 취소");
+        } else {
+            btn_incl_regist.setTag("N");
+            btn_incl_regist.setImageResource(R.drawable.button_red);
+            txt_regist_incl.setText("수업 듣기");
+        }
 
-        ImageView btn_incl_regist = (ImageView)view.findViewById(R.id.btn_incl_regist);
+        if("Y".equals(mVo.getInterest_yn())) {
+            btn_incl_interest.setTag("Y");
+            iv_detail_interest.setImageResource(R.drawable.ic_list_interest);
+        } else {
+            btn_incl_interest.setTag("N");
+            iv_detail_interest.setImageResource(R.drawable.ic_list_check);
+        }
+
 
         btn_incl_regist.setOnClickListener(this);
+        btn_incl_interest.setOnClickListener(this);
 
         return view;
     }
 
     @Override
     public void onClick(View v) {
+        Map map = new HashMap();
+        String strRetun = "";
+        String sAction = "";
         switch (v.getId()) {
             case R.id.btn_incl_regist:
-                Toast.makeText(getActivity(), "REGIST", Toast.LENGTH_SHORT).show();
+                ImageView btn_incl_regist = (ImageView)getView().findViewById(R.id.btn_incl_regist);
+                TextView txt_regist_incl  = (TextView)getView().findViewById(R.id.txt_regist_incl);
+                if("Y".equals(v.getTag())) {
+                    sAction = "DELETE";
+                    btn_incl_regist.setTag("N");
+                    btn_incl_regist.setImageResource(R.drawable.button_red);
+                    txt_regist_incl.setText("수업 듣기");
+                } else {
+                    sAction = "INSERT";
+                    btn_incl_regist.setTag("Y");
+                    btn_incl_regist.setImageResource(R.color.disabled);
+                    txt_regist_incl.setText("수업 취소");
+                }
 
-                Map map = new HashMap();
+                map = new HashMap();
+                //TODO : session
                 map.put("class_id", getArguments().getCharSequence("CLASS_ID"));
-                String strRetun = InclDBUtil.saveInclRegist(map);
+                map.put("user_id", "incladmin");
+                map.put("action", sAction);
+                strRetun = InclDBUtil.saveInclRegist(map);
 
                 break;
-//            case R.id.btn_update_class:
-//                ClassVO vo = new ClassVO();
-//
-////                EditText title      = (EditText)getView().findViewById(R.id.edtUpTitle);
-//                EditText date       = (EditText)getView().findViewById(R.id.edtUpDate);
-//                EditText startTime  = (EditText)getView().findViewById(R.id.edtUpStartTime);
-//                EditText endTime    = (EditText)getView().findViewById(R.id.edtUpEndTime);
-//                EditText content   = (EditText)getView().findViewById(R.id.edtUpContent);
-//                EditText place      = (EditText)getView().findViewById(R.id.edtUpPlace);
-//
-////                vo.setTitle(title.getText().toString());
-//                vo.setDate(date.getText().toString());
-//                vo.setStartTime(startTime.getText().toString());
-//                vo.setEndTime(endTime.getText().toString());
-//                vo.setContent(content.getText().toString());
-//                vo.setPlace(place.getText().toString());
-//
-//                phpDown task = new phpDown();
-//
-//
-//
-//                Toast.makeText(getActivity(), "Update", Toast.LENGTH_SHORT).show();
-//
-//                break;
-//            case R.id.btn_del_class:
-//                break;
+            case R.id.btn_incl_interest:
+                ImageView iv_detail_interest = (ImageView)getView().findViewById(R.id.iv_detail_interest);
+                RelativeLayout btn_incl_interest = (RelativeLayout)getView().findViewById(R.id.btn_incl_interest);
+                if("Y".equals(v.getTag())) {
+                    sAction = "DELETE";
+                    btn_incl_interest.setTag("N");
+                    iv_detail_interest.setImageResource(R.drawable.ic_list_check);
+                } else {
+                    sAction = "INSERT";
+                    btn_incl_interest.setTag("Y");
+                    iv_detail_interest.setImageResource(R.drawable.ic_list_interest);
+                }
+
+                map = new HashMap();
+                //TODO : session
+                map.put("class_id", getArguments().getCharSequence("CLASS_ID"));
+                map.put("user_id", "incladmin");
+                map.put("action", sAction);
+                strRetun = InclDBUtil.saveInclInterest(map);
+
+                break;
         }
     }
 }

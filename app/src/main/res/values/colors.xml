@@ -22,4 +22,6 @@
     <color name="button_red_pressed">#FF6060</color>
     <color name="button_red_unpressed">#FF4040</color>
 
+    <color name="disabled">#808080</color>
+
 </resources>

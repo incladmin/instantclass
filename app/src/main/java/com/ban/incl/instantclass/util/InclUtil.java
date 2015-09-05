@@ -63,6 +63,8 @@ public class InclUtil {
                 vo.setItems(jo.getString("items"));
                 vo.setBank(jo.getString("bank"));
                 vo.setAccount(jo.getString("account"));
+                vo.setRegist_yn(jo.getString("regist_yn"));
+                vo.setInterest_yn(jo.getString("interest_yn"));
 
                 list.add(vo);
             }
